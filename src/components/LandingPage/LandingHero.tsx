@@ -70,7 +70,7 @@ const LandingHero: React.FC = () => {
   );
 };
 const Wrapper = styled.div`
-  border-bottom: 1px solid #85858531;
+  padding-top: 2rem;
   .top-text {
     h2 {
       font-weight: 700;

@@ -1,4 +1,4 @@
-# React Webpack Typescript (RWT)
+# GetLinked Tech Hackathon 1.0
 
 React Webpack Typescript Boilerplate with custom webpack configurations for hot reloading.
 

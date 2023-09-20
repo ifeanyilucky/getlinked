@@ -30,7 +30,7 @@ const LandingFaq: React.FC = () => {
   return (
     <Wrapper>
       <div className='container'>
-        <div className='row py-5 align-items-center'>
+        <div className='row align-items-center'>
           <div className='col-md-5'>
             <h3 className='display-6 header'>
               Frequently Ask <br />
@@ -72,6 +72,7 @@ const LandingFaq: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  padding: 6rem 0;
   .question-marks {
     margin-bottom: -1.5rem;
   }
