@@ -52,19 +52,6 @@ const LandingPage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  .lense-flare {
-    max-width: 100%;
-    width: 480px;
-    height: 480px;
-    background-image: radial-gradient(
-      circle closest-side,
-      rgba(144, 58, 255, 0.68),
-      rgba(21, 14, 40, 0)
-    );
-    backdrop-filter: blur(4px);
-    opacity: 0.68;
-    z-index: -9;
-  }
   .lense-1 {
     position: absolute;
     left: 0;

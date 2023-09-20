@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import JudgeImage from '@assets/images/judges.png';
 
 const attributes = [
@@ -37,31 +38,46 @@ const attributes = [
 
 const LandingJudging: React.FC = () => {
   return (
-    <div className='container'>
-      <div className='row py-5 align-items-center'>
-        <div className='col-md-7 d-flex justify-content-center'>
-          <img src={JudgeImage} alt='JudgeImage' className='w-100' />
-        </div>
-        <div className='col-md-5'>
-          <h3 className='display-6 header mb-3'>
-            Judging Criteria <br />
-            <span className='highlight'>Key attributes</span>
-          </h3>
+    <Wrapper>
+      <div className='container'>
+        <div className='row py-5 align-items-center'>
+          <div className='col-md-7 d-flex justify-content-center'>
+            <img src={JudgeImage} alt='JudgeImage' className='w-100' />
+          </div>
+          <div className='col-md-5'>
+            <h3 className='display-6 header mb-3'>
+              Judging Criteria <br />
+              <span className='highlight'>Key attributes</span>
+            </h3>
 
-          {attributes.map((item, index) => (
-            <div key={index} className='py-1'>
-              <p className=''>
-                <strong style={{ color: '#FF26B9' }}>{item.title}</strong>:{' '}
-                {item.description}
-              </p>
+            {attributes.map((item, index) => (
+              <div key={index} className='py-1'>
+                <p className='attribute'>
+                  <strong style={{ color: '#FF26B9' }}>{item.title}:</strong>{' '}
+                  {item.description}
+                </p>
+              </div>
+            ))}
+            <div className='button-wrapper'>
+              <button>Read More</button>
             </div>
-          ))}
-
-          <button>Read More</button>
+          </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  .display-6 {
+    text-align: center;
+  }
+  .attribute {
+    text-align: center;
+  }
+  .button-wrapper {
+    text-align: center;
+  }
+`;
 
 export default LandingJudging;
