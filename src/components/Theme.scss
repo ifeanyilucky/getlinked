@@ -1,0 +1,57 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&family=Unica+One&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1,300&display=swap');
+
+:root {
+  // Application
+  --app-accent-color: #d434fe;
+  --app-secondary-color: #903aff;
+  --app-font-size: 14px;
+  --app-primary-color: linear-gradient(to right, #fe34b9, #903aff);
+  --app-font-family: 'Montserrat', sans-serif;
+  --app-bgcolor: #150e28;
+  --app-border-color: #3b3f44;
+  --app-title-font-family: 'Clash Display', sans-serif;
+  --app-color: #fff;
+
+  // Scrollbar
+  --scroll-width: 10px;
+  --scroll-track-bgcolor: #2f2f2f52;
+  --scroll-thumb-bgcolor: rgba(59, 59, 59, 0.747);
+  --scroll-thumb-hover-bgcolor: #555;
+
+  // Selection
+  --selection-bgcolor: var(--app-accent-color);
+  --selection-color: #fff;
+
+  // Button
+  --button-color: #fff;
+  --button-border: 1px solid #222424;
+  --button-bgcolor: hsl(0, 0%, 22%);
+  --button-hover-bgcolor: hsl(0, 0%, 24%);
+  --button-active-bgcolor: hsl(0deg 0% 20%);
+  --button-shadow-color: #00000078;
+
+  // Titlebar
+  --titlebar-bgcolor: hsl(0deg 0% 10%);
+  --titlebar-color: hsl(0, 0%, 85%);
+  --titlebar-title-color: hsl(0, 0%, 85%);
+  --titlebar-menu-border-color: #2d2c2c;
+  --titlebar-menu-title-hover-bgcolor: hsl(0deg 0% 12%);
+  --titlebar-menu-title-active-bgcolor: hsl(0deg 0% 14%);
+  --titlebar-menu-title-active-border-color: var(--titlebar-menu-border-color);
+  --titlebar-menu-separator-bgcolor: var(--titlebar-menu-border-color);
+  --titlebar-popup-bgcolor: hsl(0deg 0% 14%);
+  --titlebar-popup-border: 1px solid var(--titlebar-menu-border-color);
+  --titlebar-popup-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
+  --titlebar-popup-item-name-color: hsl(0, 0%, 75%);
+  --titlebar-popup-item-shortcut-color: hsla(0, 0%, 55%, 0.8);
+  --titlebar-popup-item-hover-color: hsl(0, 0%, 85%);
+  --titlebar-popup-item-hover-bgcolor: hsl(0deg 0% 18%);
+  --titlebar-popup-item-hover-shortcut-color: var(--app-accent-color);
+  --titlebar-popup-item-name-shadow-color: #151515;
+
+  // ERWT
+  --erwt-bgcolor: #262626;
+  --erwt-heading-color: #dddddd;
+}
