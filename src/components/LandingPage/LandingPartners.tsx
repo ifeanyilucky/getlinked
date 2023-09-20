@@ -23,33 +23,33 @@ const LandingPartners: React.FC = () => {
         </div>
 
         <div className='sponsors-wrapper'>
-          <div className='row mx-auto'>
-            <div className='col-4 mx-auto'>
+          <div className='sponsors mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={LibertyAssured} alt='liberty-assured-logo' />
               </div>
             </div>
-            <div className='col-4 mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={LibertyPayLogo} alt='liberty-pay-logo' />
               </div>
             </div>
-            <div className='col-4 mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={WinwiseLogo} alt='winwise-logo' />
               </div>
             </div>
-            <div className='col-4 mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={WisperLogo} alt='wisper-sms-logo' />
               </div>
             </div>
-            <div className='col-4 mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={Paybox} alt='paybox-logo' />
               </div>
             </div>
-            <div className='col-4 mx-auto'>
+            <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={VizualPlus} alt='vizual-plus-logo' />
               </div>
@@ -67,22 +67,52 @@ const Wrapper = styled.div`
   .sponsors-wrapper {
     border-radius: 5px;
     border: 1px solid var(--app-accent-color);
-    padding: 5rem 0;
-
-    .col-4 {
-      .logo {
-        &:first-child,
-        &:nth-child(2),
-        &:nth-child(3) {
-          border-bottom: 3px solid var(--app-accent-color);
-        }
+    padding: 5rem 4rem;
+    .sponsors {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .sponsor-item {
+      width: 100%;
+      &:first-child,
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-bottom: 3px solid var(--app-accent-color);
+      }
+      &:first-child {
+        border-right: 3px solid var(--app-accent-color);
+      }
+      &:nth-child(3) {
+        border-left: 3px solid var(--app-accent-color);
+      }
+      &:nth-child(4) {
+        border-right: 3px solid var(--app-accent-color);
+      }
+      &:nth-child(6) {
+        border-left: 3px solid var(--app-accent-color);
       }
       .logo {
         border-bottom: none;
-        padding: 3rem 0;
+        padding: 10px;
         text-align: center;
         img {
           height: 40px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sponsors-wrapper {
+      padding: 3.4rem 0;
+      .sponsor-item {
+        .logo {
+          img {
+            width: 50px;
+            height: auto;
+          }
         }
       }
     }

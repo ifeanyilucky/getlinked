@@ -7,15 +7,16 @@ import HeroImg2 from '@assets/images/hero-img-2.png';
 import Chain from '@assets/images/chain-9365116-7621444.png';
 import Light from '@assets/images/light.png';
 import TopTextUnderline from '@assets/images/top-text-underline.png';
+import Creative from '@assets/images/Creative 1.png';
 
 const LandingHero: React.FC = () => {
   return (
     <Wrapper>
       <div className='container'>
         <div className='top-text'>
-          <h2>
+          <h3>
             <i>Igniting a Revolution in HR Innovation</i>
-          </h2>
+          </h3>
           <img
             src={TopTextUnderline}
             alt='top-text-underline'
@@ -24,22 +25,25 @@ const LandingHero: React.FC = () => {
         </div>
         <div className='row mt-5'>
           <div className='col-md-6'>
-            <div className='me-md-5 my-4'>
-              <div>
-                <h1 className='display-5 header'>getlinked Tech</h1>
-                <h1 className='display-5 header'>
-                  Hackathon <span className='highlight'>1.0</span>
+            <div className='me-md-3 my-4'>
+              <div className='position-relative'>
+                <img src={Creative} alt='creative' className='creative' />
+                <h1 className='display-4 header'>
+                  getlinked Tech Hackathon{' '}
+                  <span className='highlight'>1.0</span>
                   <span>
-                    <img src={Chain} alt='chain' />
-                    <img src={Light} alt='light' />
+                    <img src={Chain} alt='chain' className='chain' />
+                    <img src={Light} alt='light' className='light' />
                   </span>
                 </h1>
               </div>
-              <p className='my-3 me-md-5'>
-                Participate in getlinked tech Hackathon 2023 stand a chance to
-                win a Big prize
-              </p>
-              <button>Register</button>
+              <div className=' hero-info'>
+                <p className='my-3 me-md-5 pe-md-5 hero-info'>
+                  Participate in getlinked tech Hackathon 2023 stand a chance to
+                  win a Big prize
+                </p>
+                <button>Register</button>
+              </div>
             </div>
             <div className='timer-wrapper mt-5'>
               <div className='timer'>
@@ -72,14 +76,16 @@ const LandingHero: React.FC = () => {
 const Wrapper = styled.div`
   padding-top: 2rem;
   .top-text {
-    h2 {
+    h3 {
       font-weight: 700;
     }
     text-align: right;
   }
 
-  .hightlight {
-    color: var(--app-accent-color);
+  .creative {
+    position: absolute;
+    right: 132px;
+    top: -55px;
   }
 
   .timer-wrapper {
@@ -101,6 +107,41 @@ const Wrapper = styled.div`
   }
   .top-text-underline {
     margin-top: -1.8rem;
+  }
+
+  /* screen size of 762px */
+  @media (max-width: 768px) {
+    .display-4 {
+      text-align: center;
+    }
+    .light {
+      width: 45px;
+    }
+    .chain {
+      width: 45px;
+    }
+    .hero-info {
+      text-align: center;
+      max-width: 330px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .timer-wrapper {
+      justify-content: center;
+    }
+    button {
+      text-align: center;
+    }
+    .creative {
+      right: 78px !important;
+      width: 30px;
+      top: -29px !important;
+    }
+    .top-text {
+      .top-text-underline {
+        width: 40%;
+      }
+    }
   }
 `;
 export default LandingHero;

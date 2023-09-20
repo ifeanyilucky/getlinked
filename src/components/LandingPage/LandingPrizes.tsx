@@ -7,11 +7,28 @@ import BronzeMedal from '@assets/images/bronze_medal.png';
 import GoldMedal from '@assets/images/gold_medal.png';
 import SilverMedal from '@assets/images/silver_medal.png';
 
+const prizes = [
+  {
+    position: '2nd',
+    amount: '300,000',
+    medal: SilverMedal,
+  },
+  {
+    position: '1st',
+    amount: '400,000',
+    medal: GoldMedal,
+  },
+  {
+    position: '3rd',
+    amount: '150,000',
+    medal: BronzeMedal,
+  },
+];
 const LandingPrizes: React.FC = () => {
   return (
     <Wrapper>
       <div className='container'>
-        <div className='row'>
+        <div className='row align-items-center'>
           <div className='col-md-5'>
             <img
               src={TargetCup}
@@ -35,44 +52,24 @@ const LandingPrizes: React.FC = () => {
             {/* MEDAL SHOWCASE */}
             <div className='prizes'>
               <div className='row'>
-                <div className='col-4'>
-                  <div className='prize'>
-                    <img
-                      src={SilverMedal}
-                      className='medal'
-                      alt='silver-medal'
-                    />
-                    <div className='mt-4 text-center prize-text'>
-                      <h4>2nd</h4>
-                      <h5> Runner</h5>
-                      <h4 className='amount'>N300,000</h4>
+                {prizes.map((item, index) => {
+                  return (
+                    <div className='col-4' key={index}>
+                      <div className='prize'>
+                        <img
+                          src={item.medal}
+                          className='medal'
+                          alt='silver-medal'
+                        />
+                        <div className='mt-4 text-center prize-text'>
+                          <h4>{item.position}</h4>
+                          <h5> Runner</h5>
+                          <h4 className='amount'>{item.amount}</h4>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className='col-4'>
-                  <div className='prize'>
-                    <img src={GoldMedal} className='medal' alt='silver-medal' />
-                    <div className='mt-4 text-center prize-text'>
-                      <h4>2nd</h4>
-                      <h5> Runner</h5>
-                      <h4 className='amount'>N300,000</h4>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-4'>
-                  <div className='prize'>
-                    <img
-                      src={BronzeMedal}
-                      className='medal'
-                      alt='silver-medal'
-                    />
-                    <div className='mt-4 text-center prize-text'>
-                      <h4>2nd</h4>
-                      <h5> Runner</h5>
-                      <h4 className='amount'>N300,000</h4>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -93,12 +90,9 @@ const Wrapper = styled.div`
     display: flex;
     gap: 30px;
     .prize {
-        flex: 1,
-      border: 1px solid var(--app-accent-color);
+      /* border: 1px solid var(--app-accent-color); */
       display: inline-block;
-    
       border-radius: 5px;
-      padding-bottom: 2rem;
 
       .prize-text {
         h4,
@@ -107,32 +101,45 @@ const Wrapper = styled.div`
           font-family: var(--app-font-family);
         }
       }
-      &:first-child,
-      &:last-child {
-        background-color: rgba(212, 52, 254, 12%);
-        height: 250px;
-        .prize-text {
-          .amount {
-            color: var(--app-accent-color);
+    }
+    .row {
+      .col-4 {
+        &:first-child,
+        &:last-child {
+          .prize {
+            border: 1px solid var(--app-accent-color) !important;
+            background-color: rgba(212, 52, 254, 12%);
+            padding-bottom: 3rem;
+            .prize-text {
+              .amount {
+                color: var(--app-accent-color);
+              }
+            }
+            .medal {
+              margin-top: -7rem;
+              width: 100%;
+            }
           }
         }
-        .medal {
-          margin-top: -7rem;
-        }
-      }
-      &:nth-child(2) {
-        background-color: rgba(144, 58, 255, 12%);
-        border: 1px solid var(--app-secondary-color);
-        height: 270px;
-        .prize-text {
-          .amount {
-            color: var(--app-secondary-color);
+        &:nth-child(2) {
+          .prize {
+            background-color: rgba(144, 58, 255, 12%);
+            border: 1px solid var(--app-secondary-color) !important;
+            /* height: 270px; */
+            padding-bottom: 2rem;
+            .prize-text {
+              .amount {
+                color: var(--app-secondary-color);
+              }
+            }
+            .medal {
+              width: 132%;
+              align-items: center;
+              text-align: center;
+              margin-left: -31px;
+              margin-top: -8rem;
+            }
           }
-        }
-        .medal {
-          margin-top: -7rem !important;
-          margin-right: -35px;
-          margin-left: -35px;
         }
       }
     }

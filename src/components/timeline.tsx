@@ -36,11 +36,47 @@ export const Timeline: React.FC = () => {
             <div>3</div>
           </div>
           <div className='timeline-content'>
-            <h2>Teams Registration ends</h2>
+            <h2 className='header'>Teams Registration ends</h2>
+            <p>Interested Participants are no longer Allowed to register </p>
+          </div>
+        </div>
+
+        <div className='timeline-item'>
+          <div className='timeline-icon d-flex align-items-center justify-content-center'>
+            <div>4</div>
+          </div>
+          <div className='timeline-content right'>
+            <h2 className='header'>
+              Announcement of the accepted teams and ideas
+            </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque,
-              facilis quo. Maiores magnam modi ab libero praesentium blanditiis
-              consequatur aspernatur accusantium maxime molestiae sunt ipsa.
+              All teams whom idea has been accepted into getlinked tech
+              hackathon 1.0 2023 are formally announced
+            </p>
+          </div>
+        </div>
+
+        <div className='timeline-item'>
+          <div className='timeline-icon d-flex align-items-center justify-content-center'>
+            <div>5</div>
+          </div>
+          <div className='timeline-content'>
+            <h2 className='header'>Getlinked Hackathon 1.0 Offically Begins</h2>
+            <p>
+              Accepted teams can now proceed to build their ground breaking
+              skill driven solutions{' '}
+            </p>
+          </div>
+        </div>
+        <div className='timeline-item'>
+          <div className='timeline-icon d-flex align-items-center justify-content-center'>
+            <div>6</div>
+          </div>
+          <div className='timeline-content right'>
+            <h2 className='header'>Demo Day</h2>
+            <p>
+              Teams get the opportunity to pitch their projects to judges. The
+              winner of the hackathon will also be announced on this day
             </p>
           </div>
         </div>

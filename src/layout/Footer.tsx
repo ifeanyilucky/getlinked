@@ -1,4 +1,10 @@
 import { Logo } from '@src/components/Logo';
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  XIcon,
+} from '@src/components/svgs';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -31,7 +37,21 @@ const Footer: React.FC = () => {
               <li>Timeline</li>
               <li>FAQs</li>
               <li>Register</li>
-              <li>Follow us</li>
+              <li className='socials'>
+                <div className='highlight'>Follow us</div>
+                <div>
+                  <InstagramIcon />
+                </div>
+                <div>
+                  <XIcon />
+                </div>
+                <div>
+                  <FacebookIcon />
+                </div>
+                <div>
+                  <LinkedInIcon />
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -92,6 +112,11 @@ const Wrapper = styled.div`
   padding-top: 4rem;
   padding-bottom: 1rem;
   background-color: #100b20;
+  .socials {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+  }
   .link-list {
     list-style-type: none;
     padding-left: 0;

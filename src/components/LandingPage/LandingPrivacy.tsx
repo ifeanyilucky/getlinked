@@ -19,15 +19,17 @@ const LandingPrivacy: React.FC = () => {
               Privacy Policy and <br /> <span className='highlight'>Terms</span>
             </h5>
 
-            <p className='my-4'>Last updated on September 12, 2023</p>
+            <p className='my-4 updated-time'>
+              Last updated on September 12, 2023
+            </p>
 
-            <p className='my-4 pb-5'>
+            <p className='my-4 pb-5 privacy-text'>
               Below are our privacy & policy. which outline a lot of goodies.
               it's our aim to always take of our participant.
             </p>
 
             <div className='privacy-box'>
-              <p>
+              <p className='privacy-text'>
                 At getlinked tech Hackathon 1.0, we value your privacy and are
                 committed to protecting your personal information. This Privacy
                 Policy outlines how we collect, use, disclose, and safeguard
@@ -68,12 +70,15 @@ const LandingPrivacy: React.FC = () => {
           </div>
 
           <div className='col-md-6 text-center position-relative'>
-            <img src={Guard} alt='guard-or-shield' className='w-75' />
-            <img
-              src={ManStandOnPadlock}
-              alt='stand-on-padlock'
-              className='w-75 man-on-padlock'
-            />
+            <img src={Guard} alt='guard-or-shield' className='w-75 guard' />
+
+            <div className='img-wrapper'>
+              <img
+                src={ManStandOnPadlock}
+                alt='stand-on-padlock'
+                className='w-75 man-on-padlock'
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -89,7 +94,7 @@ const Wrapper = styled.div`
     padding: 2rem;
     background-color: rgba(217, 217, 217, 3%);
     p {
-      width: 400px;
+      max-width: 400px;
     }
     .highlight {
       font-family: var(--app-title-font-family);
@@ -102,11 +107,31 @@ const Wrapper = styled.div`
       }
     }
   }
-
-  .man-on-padlock {
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     position: absolute;
-    left: 0;
     bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .display-6,
+    .updated-time {
+      text-align: center;
+    }
+
+    .privacy-text {
+      text-align: center;
+    }
+
+    .guard {
+      margin-top: 3rem;
+    }
+    .man-on-padlock {
+      width: 40% !important;
+    }
   }
 `;
 
