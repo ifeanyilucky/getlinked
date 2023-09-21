@@ -5,8 +5,8 @@ import { varFadeInUp } from './variants';
 
 interface ITextAnimateProps {
   text: string;
-  variants: object;
-  sx: object;
+  variants: any;
+  sx?: object;
 }
 
 export default function TextAnimate({

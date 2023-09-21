@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import JudgeImage from '@assets/images/judges.png';
+import MotionInView from '../animate/MotionInView';
+import { varFadeInUp } from '../animate/variants';
 
 const attributes = [
   {
@@ -42,25 +44,33 @@ const LandingJudging: React.FC = () => {
       <div className='container'>
         <div className='row py-5 align-items-center'>
           <div className='col-md-7 d-flex justify-content-center'>
-            <img src={JudgeImage} alt='JudgeImage' className='w-100' />
+            <MotionInView variants={varFadeInUp}>
+              <img src={JudgeImage} alt='JudgeImage' className='w-100' />
+            </MotionInView>
           </div>
           <div className='col-md-5'>
-            <h3 className='display-6 header mb-3'>
-              Judging Criteria <br />
-              <span className='highlight'>Key attributes</span>
-            </h3>
+            <MotionInView variants={varFadeInUp}>
+              <h3 className='display-6 header mb-3'>
+                Judging Criteria <br />
+                <span className='highlight'>Key attributes</span>
+              </h3>
+            </MotionInView>
 
             {attributes.map((item, index) => (
-              <div key={index} className='py-1'>
-                <p className='attribute'>
-                  <strong style={{ color: '#FF26B9' }}>{item.title}:</strong>{' '}
-                  {item.description}
-                </p>
-              </div>
+              <MotionInView variants={varFadeInUp} key={index}>
+                <div className='py-1'>
+                  <p className='attribute'>
+                    <strong style={{ color: '#FF26B9' }}>{item.title}:</strong>{' '}
+                    {item.description}
+                  </p>
+                </div>
+              </MotionInView>
             ))}
-            <div className='button-wrapper'>
-              <button>Read More</button>
-            </div>
+            <MotionInView variants={varFadeInUp}>
+              <div className='button-wrapper'>
+                <button>Read More</button>
+              </div>
+            </MotionInView>
           </div>
         </div>
       </div>
@@ -69,14 +79,16 @@ const LandingJudging: React.FC = () => {
 };
 
 const Wrapper = styled.div`
-  .display-6 {
-    text-align: center;
-  }
-  .attribute {
-    text-align: center;
-  }
-  .button-wrapper {
-    text-align: center;
+  @media (max-width: 768px) {
+    .display-6 {
+      text-align: center;
+    }
+    .attribute {
+      text-align: center;
+    }
+    .button-wrapper {
+      text-align: center;
+    }
   }
 `;
 

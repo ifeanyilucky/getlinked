@@ -13,8 +13,8 @@ const LandingPartners: React.FC = () => {
     <Wrapper>
       <div className='container'>
         <div className='row py-3'>
-          <div className='col-md-6 mx-auto text-center'>
-            <h4 className='display-6 header'>Partners and Sponsors</h4>
+          <div className='col-md-6 mx-auto text-center text-head'>
+            <h4 className='display-6 header mb-2'>Partners and Sponsors</h4>
             <p>
               Getlinked Hackathon 1.0 is honored to have the following major
               companies as its partners and sponsors
@@ -63,7 +63,9 @@ const LandingPartners: React.FC = () => {
 
 const Wrapper = styled.div`
   padding: 5rem 0;
-
+  .text-head {
+    max-width: 500px;
+  }
   .sponsors-wrapper {
     border-radius: 5px;
     border: 1px solid var(--app-accent-color);
@@ -76,23 +78,21 @@ const Wrapper = styled.div`
     }
     .sponsor-item {
       width: 100%;
-      &:first-child,
-      &:nth-child(2),
-      &:nth-child(3) {
-        border-bottom: 3px solid var(--app-accent-color);
-      }
-      &:first-child {
+      &:nth-child(2) {
         border-right: 3px solid var(--app-accent-color);
-      }
-      &:nth-child(3) {
         border-left: 3px solid var(--app-accent-color);
       }
       &:nth-child(4) {
         border-right: 3px solid var(--app-accent-color);
+        /* border-left: 3px solid var(--app-accent-color); */
       }
-      &:nth-child(6) {
-        border-left: 3px solid var(--app-accent-color);
+      &:nth-child(1) {
+        border-bottom: 3px solid var(--app-accent-color);
       }
+      &:nth-child(3) {
+        border-bottom: 3px solid var(--app-accent-color);
+      }
+
       .logo {
         border-bottom: none;
         padding: 10px;

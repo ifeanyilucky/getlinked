@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { Variants, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-interface IMotionInViewProps {
+interface IMotionInViewProps<T> {
   children: React.ReactNode;
-  variants: object;
-  transition: object;
-  triggerOnce: boolean;
-  threshold: number | [];
+  variants?: T;
+  transition?: object;
+  triggerOnce?: boolean;
+  threshold?: number | [];
 }
 
 export default function MotionInView({
@@ -16,7 +16,7 @@ export default function MotionInView({
   transition,
   threshold,
   ...other
-}: IMotionInViewProps) {
+}: IMotionInViewProps<any>) {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: threshold || 0,
@@ -37,7 +37,7 @@ export default function MotionInView({
       initial={Object.keys(variants)[0]}
       animate={controls}
       variants={variants}
-      transition={transition}
+      transition={{ ease: 'easeIn', duration: 5 }}
       {...other}
     >
       {children}

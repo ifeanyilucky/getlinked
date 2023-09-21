@@ -1,6 +1,9 @@
 module.exports = {
   mode: 'production',
   entry: ['./src/main.tsx'],
+  devServer: {
+    historyApiFallback: true,
+  },
   module: {
     rules: require('./webpack.rules'),
   },

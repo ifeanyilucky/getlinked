@@ -4,6 +4,8 @@ import styled from 'styled-components';
 // Images
 import FaqImage from '@assets/images/faq-image.png';
 import QuestionMarks from '@assets/images/question-marks.png';
+import MotionInView from '../animate/MotionInView';
+import { varFadeInUp } from '../animate/variants';
 
 const faqs = [
   {
@@ -32,37 +34,44 @@ const LandingFaq: React.FC = () => {
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-5'>
-            <h3 className='display-6 header'>
-              Frequently Ask <br />
-              <span className='highlight'>Question</span>
-            </h3>
-            <p className='my-3 pb-5'>
-              We got answers to the questions that you might want to ask{' '}
-              <strong>about getlinked Hackathon 1.0 </strong>
-            </p>
+            <MotionInView variants={varFadeInUp}>
+              <h3 className='display-6 header'>
+                Frequently Ask <br />
+                <span className='highlight'>Question</span>
+              </h3>
+            </MotionInView>
+            <MotionInView variants={varFadeInUp}>
+              <p className='my-3 pb-5'>
+                We got answers to the questions that you might want to ask{' '}
+                <strong>about getlinked Hackathon 1.0 </strong>
+              </p>
+            </MotionInView>
 
             {/* FAQS  */}
 
             <div className='faqs-wrapper'>
               {faqs.map((item, index) => (
-                <div
-                  key={index}
-                  className='faqs d-flex justify-content-between'
-                >
-                  <p>{item.question}</p>
-                  <h5 className='highlight'>+</h5>
-                </div>
+                <MotionInView variants={varFadeInUp} key={index}>
+                  <div className='faqs d-flex justify-content-between'>
+                    <p>{item.question}</p>
+                    <h5 className='highlight'>+</h5>
+                  </div>
+                </MotionInView>
               ))}
             </div>
           </div>
           <div className='col-md-7 d-flex justify-content-end'>
             <div className='text-center'>
-              <img
-                src={QuestionMarks}
-                alt='QuestionMarks'
-                className='question-marks'
-              />
-              <img src={FaqImage} alt='FaqImage' className='w-75' />
+              <MotionInView variants={varFadeInUp}>
+                <img
+                  src={QuestionMarks}
+                  alt='QuestionMarks'
+                  className='question-marks'
+                />
+              </MotionInView>
+              <MotionInView variants={varFadeInUp}>
+                <img src={FaqImage} alt='FaqImage' className='w-75' />
+              </MotionInView>
             </div>
           </div>
         </div>

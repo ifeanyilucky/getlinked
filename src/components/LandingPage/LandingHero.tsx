@@ -8,6 +8,8 @@ import Chain from '@assets/images/chain-9365116-7621444.png';
 import Light from '@assets/images/light.png';
 import TopTextUnderline from '@assets/images/top-text-underline.png';
 import Creative from '@assets/images/Creative 1.png';
+import MotionInView from '../animate/MotionInView';
+import { varFadeIn, varFadeInUp } from '../animate/variants';
 
 const LandingHero: React.FC = () => {
   return (
@@ -27,45 +29,60 @@ const LandingHero: React.FC = () => {
           <div className='col-md-6'>
             <div className='me-md-3 my-4'>
               <div className='position-relative'>
-                <img src={Creative} alt='creative' className='creative' />
-                <h1 className='display-4 header'>
-                  getlinked Tech Hackathon{' '}
-                  <span className='highlight'>1.0</span>
-                  <span>
-                    <img src={Chain} alt='chain' className='chain' />
-                    <img src={Light} alt='light' className='light' />
-                  </span>
-                </h1>
+                <MotionInView variants={varFadeInUp}>
+                  <img src={Creative} alt='creative' className='creative' />
+                  <h1 className='display-4 header'>
+                    getlinked Tech Hackathon{' '}
+                    <span className='highlight'>1.0</span>
+                    <span>
+                      <img src={Chain} alt='chain' className='chain' />
+                      <img src={Light} alt='light' className='light' />
+                    </span>
+                  </h1>
+                </MotionInView>
               </div>
               <div className=' hero-info'>
-                <p className='my-3 me-md-5 pe-md-5 hero-info'>
-                  Participate in getlinked tech Hackathon 2023 stand a chance to
-                  win a Big prize
-                </p>
-                <button>Register</button>
+                <MotionInView variants={varFadeInUp}>
+                  <p className='my-3 me-md-5 pe-md-5 hero-info'>
+                    Participate in getlinked tech Hackathon 2023 stand a chance
+                    to win a Big prize
+                  </p>
+                </MotionInView>
+                <MotionInView variants={varFadeInUp}>
+                  <button>Register</button>
+                </MotionInView>
               </div>
             </div>
-            <div className='timer-wrapper mt-5'>
-              <div className='timer'>
-                <p className='display-5'>00</p> <span>H</span>
+            <MotionInView variants={varFadeInUp}>
+              <div className='timer-wrapper mt-5'>
+                <div className='timer'>
+                  <p className='display-5'>00</p> <span>H</span>
+                </div>
+                <div className='timer'>
+                  <p className='display-5'>00</p> <span>M</span>
+                </div>
+                <div className='timer'>
+                  <p className='display-5'>00</p> <span>S</span>
+                </div>
               </div>
-              <div className='timer'>
-                <p className='display-5'>00</p> <span>M</span>
-              </div>
-              <div className='timer'>
-                <p className='display-5'>00</p> <span>S</span>
-              </div>
-            </div>
+            </MotionInView>
           </div>
 
           <div className='col-md-6'>
             <div className='position-relative'>
-              <img
-                src={HeroImg}
-                alt='man-wearing-smart-glasses'
-                className='w-100'
-              />
-              <img src={HeroImg2} alt='overlay-image' className='overlay-img' />
+              <MotionInView variants={varFadeIn}>
+                <img
+                  src={HeroImg}
+                  alt='man-wearing-smart-glasses'
+                  className='w-100'
+                />
+
+                <img
+                  src={HeroImg2}
+                  alt='overlay-image'
+                  className='overlay-img'
+                />
+              </MotionInView>
             </div>
           </div>
         </div>
