@@ -15,9 +15,12 @@ import {
 const LandingPage: React.FC = () => {
   return (
     <Wrapper>
-      <div className='lense-flare lense-1' />
-      <div className='lense-flare lense-2' />
-      <LandingHero />
+      <div className='position-relative'>
+        <div className='lense-flare lense-1' />
+        <div className='lense-flare lense-2' />
+        <img src={StarWhite} className='position-absolute' />
+        <LandingHero />
+      </div>
 
       <div className='divider' />
       <div className='position-relative'>

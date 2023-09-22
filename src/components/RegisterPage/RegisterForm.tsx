@@ -4,9 +4,28 @@ import styled from 'styled-components';
 interface IFormProps {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
+interface IForm<T> {
+  email: string;
+  phone_number: string;
+  team_name: string;
+  group_size: T;
+  project_topic: string;
+  category: T;
+  privacy_poclicy_accepted: boolean;
+}
 const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
-  const [form, setForm] = React.useState({});
-  const [isLoading, setLoading] = React.useState<boolean>(true);
+  const [form, setForm] = React.useState<IForm<string>>({
+    email: '',
+    phone_number: '',
+    team_name: '',
+    group_size: '',
+    project_topic: '',
+    category: '',
+    privacy_poclicy_accepted: true,
+  });
+  const [checkAgree, setCheckAgree] = React.useState<boolean>(false);
+
+  const [isLoading, setLoading] = React.useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent<any>): void => {
     e.preventDefault();
@@ -17,6 +36,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       setLoading(false);
     }, 2000);
   };
+
   return (
     <FormWrapper onSubmit={handleSubmit}>
       <div className='row'>
@@ -27,6 +47,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               className='gl-input'
               type='text'
               placeholder='Enter the name of your group'
+              onChange={(e) => setForm({ ...form, team_name: e.target.value })}
             />
           </div>
         </div>
@@ -37,6 +58,9 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               className='gl-input'
               type='text'
               placeholder='Enter your phone number'
+              onChange={(e) =>
+                setForm({ ...form, phone_number: e.target.value })
+              }
             />
           </div>
         </div>
@@ -48,6 +72,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               className='gl-input'
               type='email'
               placeholder='Enter your email address'
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
           </div>
         </div>
@@ -58,6 +83,9 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               className='gl-input'
               type='text'
               placeholder='What is your group project topic'
+              onChange={(e) =>
+                setForm({ ...form, project_topic: e.target.value })
+              }
             />
           </div>
         </div>
@@ -68,13 +96,19 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               className='gl-input'
               type='text'
               placeholder='Select your category'
+              onChange={(e) => setForm({ ...form, category: e.target.value })}
             />
           </div>
         </div>
         <div className='col-md-6'>
           <div className='input-wrapper'>
             <label>Group Size</label>
-            <input className='gl-input' type='text' placeholder='Select' />
+            <input
+              className='gl-input'
+              type='text'
+              placeholder='Select'
+              onChange={(e) => setForm({ ...form, group_size: e.target.value })}
+            />
           </div>
         </div>
       </div>
@@ -84,15 +118,25 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
         </small>
       </div>
       <div className='d-flex align-items-baseline pb-3'>
-        <input type='checkbox' className='checkbox' />
+        <input
+          type='checkbox'
+          checked={checkAgree}
+          className='checkbox'
+          onChange={(e) => console.log(e.target)}
+        />
         <small>
           I agreed with the event terms and conditions and privacy policy.
         </small>
       </div>
 
       <div className='text-center'>
-        <button type='submit' disabled={true}>
-          Register Now
+        <button
+          type='submit'
+          disabled={isLoading}
+          className='gl-button'
+          // disabled={isLoading === true && checkAgree === true ? true : false}
+        >
+          {isLoading ? 'Please wait...' : '  Register Now'}
         </button>
       </div>
     </FormWrapper>

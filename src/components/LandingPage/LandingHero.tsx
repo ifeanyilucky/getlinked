@@ -1,5 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { PATH } from '@src/routes/paths';
+import MotionInView from '../animate/MotionInView';
+import { varFadeIn, varFadeInUp } from '../animate/variants';
 
 // IMAGES
 import HeroImg from '@assets/images/man-wearing-smart-glasses-touching-virtual-screen.png';
@@ -8,9 +12,8 @@ import Chain from '@assets/images/chain-9365116-7621444.png';
 import Light from '@assets/images/light.png';
 import TopTextUnderline from '@assets/images/top-text-underline.png';
 import Creative from '@assets/images/Creative 1.png';
-import MotionInView from '../animate/MotionInView';
-import { varFadeIn, varFadeInUp } from '../animate/variants';
-
+import Metrix from '@assets/images/metrix.png';
+import StarWhite from '@assets/images/start-white.png';
 const LandingHero: React.FC = () => {
   return (
     <Wrapper>
@@ -27,6 +30,8 @@ const LandingHero: React.FC = () => {
         </div>
         <div className='row mt-5'>
           <div className='col-md-6'>
+            {/* start images */}
+
             <div className='me-md-3 my-4'>
               <div className='position-relative'>
                 <MotionInView variants={varFadeInUp}>
@@ -49,7 +54,9 @@ const LandingHero: React.FC = () => {
                   </p>
                 </MotionInView>
                 <MotionInView variants={varFadeInUp}>
-                  <button>Register</button>
+                  <Link to={PATH.register}>
+                    <button className='gl-button'>Register</button>
+                  </Link>
                 </MotionInView>
               </div>
             </div>
@@ -87,10 +94,13 @@ const LandingHero: React.FC = () => {
           </div>
         </div>
       </div>
+      <img src={Metrix} alt='metrix' className='overlay-metrix' />
     </Wrapper>
   );
 };
 const Wrapper = styled.div`
+  position: relative;
+
   padding-top: 2rem;
   .top-text {
     h3 {
@@ -159,6 +169,12 @@ const Wrapper = styled.div`
         width: 40%;
       }
     }
+  }
+  .overlay-metrix {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 780px;
   }
 `;
 export default LandingHero;

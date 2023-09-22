@@ -1,34 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-
 // Images
 import FaqImage from '@assets/images/faq-image.png';
 import QuestionMarks from '@assets/images/question-marks.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
 
-const faqs = [
+interface IFaq {
+  question: string;
+  answer: string;
+  id: number;
+}
+const faqs: IFaq[] = [
   {
     question: 'Can I work on a project I started before the hackathon?',
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 1,
   },
   {
     question: 'What happens if I need help during the hackathon?',
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 2,
   },
   {
     question: `What happens if I don't have an idea for a project?`,
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 3,
   },
   {
     question: `Can I join a team or do I have to come with one?`,
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 4,
   },
   {
     question: `What happens after the hackathon ends`,
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 5,
   },
   {
     question: `Can I work on a project I started before the hackathon?`,
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nemo doloremque deserunt quas modi. At explicabo quis, cupiditate alias reprehenderit deleniti, perspiciatis ea hic odio, architecto ipsa. Doloremque, dignissimos harum?`,
+    id: 6,
   },
 ];
 
 const LandingFaq: React.FC = () => {
+  const [currentFaq, setCurrentFaq] = useState<number>(1);
   return (
     <Wrapper>
       <div className='container'>
@@ -50,11 +67,22 @@ const LandingFaq: React.FC = () => {
             {/* FAQS  */}
 
             <div className='faqs-wrapper'>
-              {faqs.map((item, index) => (
+              {faqs.map((item: IFaq, index) => (
                 <MotionInView variants={varFadeInUp} key={index}>
-                  <div className='faqs d-flex justify-content-between'>
-                    <p>{item.question}</p>
-                    <h5 className='highlight'>+</h5>
+                  <div className='faqs' onClick={() => setCurrentFaq(item.id)}>
+                    <div className='question d-flex justify-content-between'>
+                      <p>{item.question}</p>
+                      <h5 className='highlight'>
+                        {currentFaq === item.id ? '-' : '+'}
+                      </h5>
+                    </div>
+                    <div
+                      className={
+                        currentFaq === item.id ? 'answer current' : 'answer'
+                      }
+                    >
+                      <p>{item.answer}</p>
+                    </div>
                   </div>
                 </MotionInView>
               ))}
@@ -91,6 +119,14 @@ const Wrapper = styled.div`
     gap: 15px;
     .faqs {
       border-bottom: 1px solid var(--app-accent-color);
+      cursor: pointer;
+      .answer {
+        display: none;
+        transition: 0.4s ease-in-out;
+      }
+      .current {
+        display: block;
+      }
     }
   }
 `;

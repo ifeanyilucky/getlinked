@@ -17,14 +17,14 @@
   }
 
   &-thumb:hover {
-    background: var(--scroll-thumb-hover-bgcolor);
+    background: var(--app-accent-color);
   }
 }
 
 html,
 body,
 #app {
-  // height: 100%;
+  height: 100%;
   overflow-x: hidden !important;
 }
 
@@ -45,12 +45,16 @@ body {
 a {
   color: var(--app-color);
   text-decoration: none;
+  transition: color 0.5s cubic-bezier();
   :hover {
-    opacity: 0.6 !important;
+    // opacity: 0.6 !important;
+  }
+  .active {
+    color: var(--app-accent-color) !important;
   }
 }
 
-button {
+.gl-button {
   background: var(--app-primary-color);
   color: var(--button-color);
   font-weight: normal;
@@ -66,8 +70,15 @@ button {
   align-items: center;
   outline: none;
   min-width: 140px;
-  :disabled {
+  border: 1px solid transparent;
+  outline: none;
+  transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  &:disabled {
     opacity: 0.25 !important;
+    cursor: default !important;
+  }
+  &:hover {
+    // background: transparent !important;
   }
 }
 .divider {
@@ -98,21 +109,10 @@ button {
 // TIMELINE STYLE
 
 // Variables
-$bg-body: #f9f9f9;
-
-$red: #ee4d4d;
-$blue: #2b2e48;
-$primary-color: $red;
-$secondary-color: $blue;
-
-// Typography
-$base-font: helvetica, arial, tahoma, verdana;
-$base-font-title: 'Dosis', arial, tahoma, verdana;
 
 $base-font-color: #726f77;
 
 // Timeline
-$timeline-color: $primary-color;
 
 // Mixins and Placeholders
 %clearfix {
@@ -224,7 +224,7 @@ $timeline-color: $primary-color;
           left: 10%;
           margin-left: -6px;
           border-left: 0;
-          border-right: 7px solid $timeline-color;
+          // border-right: 7px solid $timeline-color;
         }
       }
 

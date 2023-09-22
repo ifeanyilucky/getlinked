@@ -66,7 +66,7 @@ const LandingPrivacy: React.FC = () => {
                 ))}
               </div>
               <MotionInView variants={varFadeInUp}>
-                <button>Read more</button>
+                <button className='gl-button'>Read more</button>
               </MotionInView>
             </div>
           </div>

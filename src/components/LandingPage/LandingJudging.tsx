@@ -68,7 +68,7 @@ const LandingJudging: React.FC = () => {
             ))}
             <MotionInView variants={varFadeInUp}>
               <div className='button-wrapper'>
-                <button>Read More</button>
+                <button className='gl-button'>Read More</button>
               </div>
             </MotionInView>
           </div>

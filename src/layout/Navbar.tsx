@@ -1,7 +1,7 @@
 import { Logo } from '@src/components/Logo';
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, NavLink } from 'react-router-dom';
 import { Chevron, CloseIcon } from '@src/components/svgs';
 import { PATH } from '@src/routes/paths';
 
@@ -9,7 +9,7 @@ const navconfig = [
   { title: 'Timeline' },
   { title: 'Overview' },
   { title: 'FAQs' },
-  { title: 'Contact', link: PATH.contacT },
+  { title: 'Contact', link: PATH.contact },
 ];
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -38,13 +38,18 @@ export const Navbar: React.FC = () => {
               <ul className='nav-items'>
                 {navconfig.map((item, index) => (
                   <li className='nav-item' key={index}>
-                    <Link to={item.link}>{item.title}</Link>
+                    <NavLink to={item.link}>{item.title}</NavLink>
                   </li>
                 ))}
               </ul>
-              <Link to={PATH.register}>
-                <button>Register</button>
-              </Link>
+              <NavLink
+                to={PATH.register}
+                className={({ isActive, isPending }) =>
+                  isPending ? 'pending' : isActive ? 'active' : ''
+                }
+              >
+                <button className='gl-button'>Register</button>
+              </NavLink>
             </div>
           </div>
         </div>

@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className='col-md-8 mx-auto'>
+          <div className='col-md-8 d-flex justify-content-center'>
             <div className='contact-box'>
               <h6 className='header highlight'>
                 Questions or need assistance? <br />
@@ -70,7 +70,9 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className='text-center'>
-                  <button type='submit'>Submit</button>
+                  <button className='gl-button' type='submit'>
+                    Submit
+                  </button>
                 </div>
               </form>
             </div>
@@ -96,6 +98,8 @@ const Wrapper = styled.div`
     border-radius: 12px;
 
     max-width: 540px;
+    width: 540px;
+
     padding: 3rem;
   }
   .gl-input {

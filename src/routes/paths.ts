@@ -6,6 +6,6 @@ const pathJoin = (root: string, path: string) => {
 
 export const PATH = {
   index: PATH_ROOT,
-  contacT: pathJoin(PATH_ROOT, 'contact'),
+  contact: pathJoin(PATH_ROOT, 'contact'),
   register: pathJoin(PATH_ROOT, 'register'),
 };
