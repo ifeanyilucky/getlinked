@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
       <div className='lense-flare lense' />
       <div className='container'>
         <div className='row align-items-center'>
-          <div className='col-md-4 py-5 py-md-0'>
+          <div className='col-md-4 desktop py-5 py-md-0'>
             <div>
               <h4 className='header highlight'>Get in touch</h4>
               <p>
@@ -50,10 +50,13 @@ const Contact: React.FC = () => {
 
           <div className='col-md-8 d-flex justify-content-center'>
             <div className='contact-box'>
-              <h6 className='header highlight'>
+              <h4 className='header mb-3 highlight'>
                 Questions or need assistance? <br />
                 Let us know about it!
-              </h6>
+              </h4>
+              <p className='mobile'>
+                Email us below to any question related to our event
+              </p>
               <form>
                 <div>
                   <input
@@ -75,6 +78,20 @@ const Contact: React.FC = () => {
                   </button>
                 </div>
               </form>
+              <div className='mobile text-center mt-5'>
+                <p className='highlight'>
+                  <strong>Share on</strong>
+                </p>
+                <div
+                  className='d-flex align-items-center justify-content-center'
+                  style={{ gap: '10px' }}
+                >
+                  <InstagramIcon />
+                  <XIcon />
+                  <FacebookIcon />
+                  <LinkedInIcon />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -84,6 +101,7 @@ const Contact: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   padding: 5rem 0;
   .lense {
     position: absolute;
@@ -92,14 +110,15 @@ const Wrapper = styled.div`
   }
   .contact-box {
     /* maxwidth: 617px; */
-
+    @media (max-width: 768px) {
+      background: transparent;
+      box-shadow: none;
+    }
     background: rgba(255, 255, 255, 0.03);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
-
     max-width: 540px;
     width: 540px;
-
     padding: 3rem;
   }
   .gl-input {
@@ -112,6 +131,18 @@ const Wrapper = styled.div`
     background-color: transparent;
     ::placeholder {
       color: #fff;
+      font-weight: bolder !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .desktop {
+      display: none;
+    }
+  }
+  @media (min-width: 768px) {
+    .mobile {
+      display: none;
     }
   }
 `;

@@ -1,7 +1,7 @@
 import { Logo } from '@src/components/Logo';
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Outlet, NavLink } from 'react-router-dom';
+import { Link, Outlet, NavLink, useLocation } from 'react-router-dom';
 import { Chevron, CloseIcon } from '@src/components/svgs';
 import { PATH } from '@src/routes/paths';
 
@@ -20,6 +20,11 @@ export const Navbar: React.FC = () => {
   const handleOpen = () => {
     setIsOpen(true);
   };
+  const location = useLocation();
+
+  const splitLocation = location.pathname.split('/');
+  const activePath = `/${splitLocation[1]}`;
+
   return (
     <>
       <Wrapper isOpen={isOpen}>
@@ -38,17 +43,27 @@ export const Navbar: React.FC = () => {
               <ul className='nav-items'>
                 {navconfig.map((item, index) => (
                   <li className='nav-item' key={index}>
-                    <NavLink to={item.link}>{item.title}</NavLink>
+                    <NavLink
+                      to={item.link}
+                      className={
+                        activePath === item.link ? 'active-nav-link' : ''
+                      }
+                    >
+                      {item.title}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
-              <NavLink
-                to={PATH.register}
-                className={({ isActive, isPending }) =>
-                  isPending ? 'pending' : isActive ? 'active' : ''
-                }
-              >
-                <button className='gl-button'>Register</button>
+              <NavLink to={PATH.register}>
+                <button
+                  className={
+                    activePath === PATH.register
+                      ? 'active-nav-button gl-button'
+                      : 'gl-button'
+                  }
+                >
+                  Register
+                </button>
               </NavLink>
             </div>
           </div>

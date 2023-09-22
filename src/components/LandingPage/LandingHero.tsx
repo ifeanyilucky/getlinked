@@ -175,6 +175,7 @@ const Wrapper = styled.div`
     bottom: 0;
     right: 0;
     width: 780px;
+    z-index: -999;
   }
 `;
 export default LandingHero;

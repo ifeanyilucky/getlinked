@@ -46,12 +46,15 @@ a {
   color: var(--app-color);
   text-decoration: none;
   transition: color 0.5s cubic-bezier();
+  font-weight: 600;
   :hover {
     // opacity: 0.6 !important;
   }
-  .active {
-    color: var(--app-accent-color) !important;
-  }
+}
+.active-nav-link {
+  background: -webkit-linear-gradient(#fe34b9, #903aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gl-button {
@@ -77,9 +80,13 @@ a {
     opacity: 0.25 !important;
     cursor: default !important;
   }
-  &:hover {
-    // background: transparent !important;
-  }
+}
+.active-nav-button {
+  background: var(--app-primary-color);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #000 inset;
+  border: solid 3px transparent;
 }
 .divider {
   width: 100%;
