@@ -6,7 +6,7 @@ const LandingTimeline: React.FC = () => {
   return (
     <Wrapper>
       <div className='container'>
-        <div className='row mx-auto'>
+        <div className='row mx-auto timeline-header'>
           <div className='col-md-4 mx-auto'>
             <div className='text-center'>
               <h3 className='display-6 header'>Timeline</h3>
@@ -27,6 +27,9 @@ const LandingTimeline: React.FC = () => {
 
 const Wrapper = styled.div`
   padding: 5rem 0;
+  .timeline-header {
+    margin-bottom: 15%;
+  }
 `;
 
 export default LandingTimeline;

@@ -142,14 +142,14 @@ $base-font-color: #726f77;
   &:before {
     content: '';
     width: 3px;
-    height: 100%;
+    height: 110%;
     background: linear-gradient(
       to left,
       rgba(144, 58, 255, 100%),
       rgba(212, 52, 254, 100%)
     );
     left: 50%;
-    top: 0;
+    top: -10%;
     position: absolute;
   }
 
@@ -171,13 +171,13 @@ $base-font-color: #726f77;
         rgba(144, 58, 255, 100%),
         rgba(212, 52, 254, 100%)
       );
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       position: absolute;
       top: 0;
       left: 50%;
       overflow: hidden;
-      margin-left: -15px;
+      margin-left: -26px;
       box-shadow: 0 0 0 6px rgb(21, 14, 40);
       @include prefix(border-radius, 50%);
 
@@ -189,6 +189,7 @@ $base-font-color: #726f77;
     }
 
     .timeline-content {
+      float: left;
       width: 45%;
       padding: 20px;
       @include prefix(transition, all 0.3s ease);

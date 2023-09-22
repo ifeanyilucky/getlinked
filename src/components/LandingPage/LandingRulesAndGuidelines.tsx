@@ -30,7 +30,7 @@ const LandingRulesAndGuidelines: React.FC = () => {
               </p>
             </MotionInView>
           </div>
-          <div className='col-md-7 d-flex justify-content-center'>
+          <div className='col-md-7 text-center d-flex justify-content-center'>
             <MotionInView variants={varFadeInUp}>
               <img src={LadySitting} alt='LadySitting' className='w-75' />
             </MotionInView>

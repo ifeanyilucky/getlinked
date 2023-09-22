@@ -11,6 +11,11 @@ import {
   LandingPartners,
   LandingPrivacy,
 } from '@src/components/LandingPage';
+// images
+import StarWhite from '@assets/images/start-white.png';
+import StarLight from '@assets/images/start-light.png';
+import StarPurple from '@assets/images/start-purple.png';
+import StarGrey from '@assets/images/star-grey.png';
 
 const LandingPage: React.FC = () => {
   return (
@@ -18,12 +23,17 @@ const LandingPage: React.FC = () => {
       <div className='position-relative'>
         <div className='lense-flare lense-1' />
         <div className='lense-flare lense-2' />
-        <img src={StarWhite} className='position-absolute' />
+        <img src={StarWhite} className='star star-1' />
+        <img src={StarGrey} className='star star-2' />
+        <img src={StarGrey} className='star star-3' />
         <LandingHero />
       </div>
 
       <div className='divider' />
       <div className='position-relative'>
+        <img src={StarLight} className='star star-4' />
+        <img src={StarPurple} className='star star-5' />
+
         <LandingIntro />
         <div className='divider' />
 
@@ -55,6 +65,30 @@ const LandingPage: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  .star {
+    position: absolute;
+    width: 15px;
+  }
+  .star-1 {
+    top: 50px;
+    left: 10rem;
+  }
+  .star-2 {
+    top: 20%;
+    right: 50%;
+  }
+  .star-3 {
+    bottom: 50px;
+    left: 10rem;
+  }
+  .star-4 {
+    top: 30%;
+    left: 20%;
+  }
+  .star-5 {
+    bottom: 40%;
+    right: 20%;
+  }
   .lense-1 {
     position: absolute;
     left: 0;
