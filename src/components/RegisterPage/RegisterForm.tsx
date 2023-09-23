@@ -138,7 +138,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               }
               defaultValue={''}
             >
-               {categories.length > 2
+               {categories.length
                 && categories.map((category: ICategory) => (
                     <option
                       key={category.id}
