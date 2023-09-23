@@ -46,6 +46,7 @@ const LandingJudging: React.FC = () => {
           <div className='col-md-7 d-flex justify-content-center'>
             <MotionInView variants={varFadeInUp}>
               <img src={JudgeImage} alt='JudgeImage' className='w-100' />
+              <div className='ellipse circle' />
             </MotionInView>
           </div>
           <div className='col-md-5'>
@@ -88,6 +89,16 @@ const Wrapper = styled.div`
     }
     .button-wrapper {
       text-align: center;
+    }
+  }
+
+  .circle {
+    position: absolute;
+    left: 13%;
+    top: 13%;
+    z-index: -9;
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 `;

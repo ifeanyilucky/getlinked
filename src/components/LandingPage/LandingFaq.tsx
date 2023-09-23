@@ -5,6 +5,7 @@ import FaqImage from '@assets/images/faq-image.png';
 import QuestionMarks from '@assets/images/question-marks.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface IFaq {
   question: string;
@@ -47,7 +48,7 @@ const faqs: IFaq[] = [
 const LandingFaq: React.FC = () => {
   const [currentFaq, setCurrentFaq] = useState<number>(1);
   return (
-    <Wrapper>
+    <Wrapper id='faqs'>
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-5'>
@@ -67,8 +68,8 @@ const LandingFaq: React.FC = () => {
             {/* FAQS  */}
 
             <div className='faqs-wrapper'>
-              {faqs.map((item: IFaq, index) => (
-                <MotionInView variants={varFadeInUp} key={index}>
+              {faqs.map((item: IFaq) => (
+                <MotionInView variants={varFadeInUp} key={item.id}>
                   <div className='faqs' onClick={() => setCurrentFaq(item.id)}>
                     <div className='question d-flex justify-content-between'>
                       <p>{item.question}</p>
@@ -76,13 +77,27 @@ const LandingFaq: React.FC = () => {
                         {currentFaq === item.id ? '-' : '+'}
                       </h5>
                     </div>
-                    <div
-                      className={
-                        currentFaq === item.id ? 'answer current' : 'answer'
-                      }
-                    >
-                      <p>{item.answer}</p>
-                    </div>
+
+                    <AnimatePresence initial={false} key={item.id}>
+                      {currentFaq === item.id ? (
+                        <motion.div
+                          initial={{ height: 0 }}
+                          animate={{ height: 'auto' }}
+                          exit={{ height: 0 }}
+                          transition={{
+                            type: 'spring',
+                            duration: 0.4,
+                            bounce: 0,
+                          }}
+                        >
+                          <div className={'current answer'}>
+                            <p>{item.answer}</p>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        ''
+                      )}
+                    </AnimatePresence>
                   </div>
                 </MotionInView>
               ))}
@@ -112,6 +127,9 @@ const Wrapper = styled.div`
   padding: 6rem 0;
   .question-marks {
     margin-bottom: -1.5rem;
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+    }
   }
   .faqs-wrapper {
     display: flex;

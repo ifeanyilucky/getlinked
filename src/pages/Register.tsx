@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MotionInView from '@src/components/animate/MotionInView';
 import { varFadeInUp } from '@src/components/animate/variants';
 // images
@@ -7,9 +7,24 @@ import FemaleWalking from '@assets/images/female-walking-emoji.png';
 import MaleWalking from '@assets/images/male-walking-emoji.png';
 import DesignerShowingThumbs from '@assets/images/3d-graphic-designer-showing-thumbs-up.png';
 import { CongratModal, RegisterForm } from '@src/components/RegisterPage';
+import { Api } from '@src/utils/api';
 
 const Register = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      await Api.get('/hackathon/categories-list')
+        .then(({ data }) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    getCategories();
+  }, []);
   return (
     <Wrapper>
       <CongratModal showModal={showModal} setShowModal={setShowModal} />

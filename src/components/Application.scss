@@ -82,11 +82,11 @@ a {
   }
 }
 .active-nav-button {
-  background: var(--app-primary-color);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  box-shadow: 2px 1000px 1px #000 inset;
-  border: solid 3px transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 6px;
+  background: transparent !important;
+  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
 }
 .divider {
   width: 100%;
@@ -241,4 +241,11 @@ $base-font-color: #726f77;
       }
     }
   }
+}
+
+.ellipse {
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  background: linear-gradient(270deg, #8f01fe 0%, #ff2674 97.24%);
 }

@@ -30,9 +30,10 @@ const LandingRulesAndGuidelines: React.FC = () => {
               </p>
             </MotionInView>
           </div>
-          <div className='col-md-7 text-center d-flex justify-content-center'>
+          <div className='col-md-7 position-relative text-center d-flex justify-content-center'>
             <MotionInView variants={varFadeInUp}>
-              <img src={LadySitting} alt='LadySitting' className='w-75' />
+              <div className='ellipse circle' />
+              <img src={LadySitting} alt='LadySitting' className='w-100' />
             </MotionInView>
           </div>
         </div>
@@ -50,15 +51,15 @@ const Wrapper = styled.div`
       text-align: center;
     }
   }
+  .circle {
+    position: absolute;
+    right: 21%;
+    top: 14%;
+    z-index: -9;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
-// /* Ellipse 2 */
-
-// position: absolute;
-// width: 134px;
-// height: 134px;
-// left: 163px;
-// top: 2359px;
-
-// background: linear-gradient(270deg, #8F01FE 0%, #FF2674 97.24%);
 
 export default LandingRulesAndGuidelines;

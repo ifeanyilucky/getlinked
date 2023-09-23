@@ -6,9 +6,9 @@ import { Chevron, CloseIcon } from '@src/components/svgs';
 import { PATH } from '@src/routes/paths';
 
 const navconfig = [
-  { title: 'Timeline' },
-  { title: 'Overview' },
-  { title: 'FAQs' },
+  { title: 'Timeline', link: '#timeline' },
+  { title: 'Overview', link: '#overview' },
+  { title: 'FAQs', link: '#faqs' },
   { title: 'Contact', link: PATH.contact },
 ];
 export const Navbar: React.FC = () => {

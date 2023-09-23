@@ -24,35 +24,42 @@ const LandingPartners: React.FC = () => {
 
         <div className='sponsors-wrapper'>
           <div className='sponsors mx-auto'>
-            <div className='sponsor-item mx-auto'>
+            <div className='sponsor-item mx-auto position-relative'>
               <div className='logo'>
                 <img src={LibertyAssured} alt='liberty-assured-logo' />
               </div>
+              <div className='hr-line hr-line-1' />
+              <div className='vt-line vt-line-1' />
             </div>
-            <div className='sponsor-item mx-auto'>
+            <div className='sponsor-item mx-auto position-relative'>
               <div className='logo'>
                 <img src={LibertyPayLogo} alt='liberty-pay-logo' />
               </div>
+              <div className='hr-line hr-line-2' />
             </div>
-            <div className='sponsor-item mx-auto'>
+            <div className='sponsor-item mx-auto position-relative'>
+              <div className='vt-line vt-line-2' />
               <div className='logo'>
                 <img src={WinwiseLogo} alt='winwise-logo' />
               </div>
+              <div className='hr-line hr-line-3' />
             </div>
-            <div className='sponsor-item mx-auto'>
+            <div className='sponsor-item mx-auto position-relative'>
               <div className='logo'>
                 <img src={WisperLogo} alt='wisper-sms-logo' />
               </div>
+              <div className='vt-line vt-line-3' />
             </div>
             <div className='sponsor-item mx-auto'>
               <div className='logo'>
                 <img src={Paybox} alt='paybox-logo' />
               </div>
             </div>
-            <div className='sponsor-item mx-auto'>
+            <div className='sponsor-item mx-auto position-relative'>
               <div className='logo'>
                 <img src={VizualPlus} alt='vizual-plus-logo' />
               </div>
+              <div className='vt-line vt-line-4' />
             </div>
           </div>
         </div>
@@ -78,20 +85,6 @@ const Wrapper = styled.div`
     }
     .sponsor-item {
       width: 100%;
-      &:nth-child(2) {
-        border-right: 3px solid var(--app-accent-color);
-        border-left: 3px solid var(--app-accent-color);
-      }
-      &:nth-child(4) {
-        border-right: 3px solid var(--app-accent-color);
-        /* border-left: 3px solid var(--app-accent-color); */
-      }
-      &:nth-child(1) {
-        border-bottom: 3px solid var(--app-accent-color);
-      }
-      &:nth-child(3) {
-        border-bottom: 3px solid var(--app-accent-color);
-      }
 
       .logo {
         border-bottom: none;
@@ -107,15 +100,47 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     .sponsors-wrapper {
       padding: 3.4rem 0;
-      .sponsor-item {
+      zoom: 0.5;
+      /* .sponsor-item {
         .logo {
           img {
             width: 50px;
             height: auto;
           }
         }
-      }
+      } */
     }
+  }
+  .hr-line {
+    width: 240px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--app-accent-color);
+  }
+  .vt-line {
+    width: 2px;
+    background-color: var(--app-accent-color);
+    position: absolute;
+    width: 112.48px;
+    height: 2px;
+    transform: rotate(-90deg);
+  }
+  .vt-line-1 {
+    right: 0;
+    top: 0;
+  }
+  .vt-line-2 {
+    left: 0;
+    bottom: 0;
+  }
+  .vt-line-3 {
+    right: 0;
+    bottom: 0;
+  }
+  .vt-line-4 {
+    left: -63px;
+    bottom: 0;
   }
 `;
 export default LandingPartners;

@@ -6,8 +6,24 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@src/components/svgs';
+// import { Api } from '@src/utils/api';
 
 const Contact: React.FC = () => {
+  // const [values, setValues] = React.useState({
+  //   email: '',
+  //   phone_number: '',
+  //   first_name: '',
+  //   message: '',
+  // });
+
+  // async function handleSubmit() {
+  //   console.log(values);
+  //   // try {
+  //   //   const { data } = await Api.get('/hackathon/contact-form');
+  //   // } catch (error) {
+  //   //   console.log(error);
+  //   // }
+  // }
   return (
     <Wrapper>
       <div className='lense-flare lense' />

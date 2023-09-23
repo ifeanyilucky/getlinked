@@ -4,7 +4,7 @@ import { Timeline } from '../timeline';
 
 const LandingTimeline: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper id='timeline'>
       <div className='container'>
         <div className='row mx-auto timeline-header'>
           <div className='col-md-4 mx-auto'>

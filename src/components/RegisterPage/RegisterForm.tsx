@@ -1,3 +1,4 @@
+import { Api } from '@src/utils/api';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -23,18 +24,23 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
     category: '',
     privacy_poclicy_accepted: true,
   });
-  const [checkAgree, setCheckAgree] = React.useState<boolean>(false);
+  const [acceptTerms, setAcceptTerms] = React.useState<boolean>(false);
 
   const [isLoading, setLoading] = React.useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent<any>): void => {
+  const handleSubmit = async (e: React.FormEvent<any>): Promise<void> => {
     e.preventDefault();
     console.log(form);
     setLoading(true);
-    setTimeout(() => {
-      setShowModal(true);
-      setLoading(false);
-    }, 2000);
+    await Api.post('hackathon/registration', form)
+      .then((res) => {
+        setLoading(false);
+        console.log(res);
+        setShowModal(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -120,9 +126,9 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       <div className='d-flex align-items-baseline pb-3'>
         <input
           type='checkbox'
-          checked={checkAgree}
+          checked={acceptTerms}
           className='checkbox'
-          onChange={(e) => console.log(e.target)}
+          onChange={() => setAcceptTerms(!acceptTerms)}
         />
         <small>
           I agreed with the event terms and conditions and privacy policy.
@@ -134,7 +140,8 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
           type='submit'
           disabled={isLoading}
           className='gl-button'
-          // disabled={isLoading === true && checkAgree === true ? true : false}
+
+          // disabled={isLoading === true && acceptTerms === true ? true : false}
         >
           {isLoading ? 'Please wait...' : '  Register Now'}
         </button>

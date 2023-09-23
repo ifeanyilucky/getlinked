@@ -85,14 +85,22 @@ const Wrapper = styled.div`
     margin-bottom: 10rem;
     width: 360px;
     margin-left: 3rem;
+    @media (max-width: 768px) {
+      margin-left: 0;
+      text-align: center;
+    }
   }
   .prizes {
-    display: flex;
     gap: 30px;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 1024px) {
+      zoom: 0.6;
+    }
     .prize {
       /* border: 1px solid var(--app-accent-color); */
       display: inline-block;
-      border-radius: 5px;
+      border-radius: 8px;
 
       .prize-text {
         h4,
@@ -109,14 +117,17 @@ const Wrapper = styled.div`
           .prize {
             border: 1px solid var(--app-accent-color) !important;
             background-color: rgba(212, 52, 254, 12%);
-            padding-bottom: 3rem;
+            padding-bottom: 2rem;
             .prize-text {
               .amount {
                 color: var(--app-accent-color);
               }
             }
             .medal {
-              margin-top: -7rem;
+              margin-top: -5rem;
+              @media (max-width: 1024px) {
+                margin-top: -5rem;
+              }
               width: 100%;
             }
           }
@@ -126,18 +137,25 @@ const Wrapper = styled.div`
             background-color: rgba(144, 58, 255, 12%);
             border: 1px solid var(--app-secondary-color) !important;
             /* height: 270px; */
-            padding-bottom: 2rem;
+            padding-bottom: 1.5rem;
             .prize-text {
               .amount {
                 color: var(--app-secondary-color);
               }
             }
             .medal {
-              width: 132%;
+              width: 134%;
               align-items: center;
               text-align: center;
-              margin-left: -31px;
+              margin-left: -32px;
               margin-top: -8rem;
+              @media (max-width: 769px) {
+                /* margin-left: -29px !important; */
+              }
+              @media (max-width: 1024px) {
+                margin-left: -34px;
+                margin-top: -10rem;
+              }
             }
           }
         }
