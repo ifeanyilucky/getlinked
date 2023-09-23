@@ -21,6 +21,21 @@ interface ICategory {
 }
 
 const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
+  const defaultCategories = [
+    { id: 0, name: 'Select your category', disabled: true },
+  {
+    id: 1,
+    name: "MOBILE"
+  },
+  {
+    id: 2,
+    name: "WEB"
+  },
+  {
+    id: 3,
+    name: "BACKEND"
+  }
+]
   const [form, setForm] = React.useState<IForm<number>>({
     email: '',
     phone_number: '',
@@ -135,7 +150,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               }
               defaultValue={''}
             >
-              {categories.length &&
+              {categories.length > 1 ?
                 categories.map((category: ICategory) => (
                   <option
                     key={category.id}
@@ -144,7 +159,15 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
                   >
                     {category.name}
                   </option>
-                ))}
+                )) : defaultCategories.map((categories)=>(
+                  <option
+                    key={category.id}
+                    disabled={category.id === 0 ? true : false}
+                    value={category.id === 0 ? '' : category.id}
+                  >
+                    {category.name}
+                  </option>
+                )) }
             </select>
           </div>
         </div>
