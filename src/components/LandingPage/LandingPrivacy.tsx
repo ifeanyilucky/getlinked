@@ -147,13 +147,10 @@ const Wrapper = styled.div`
       margin-top: 3rem;
     }
     .man-on-padlock {
-      width: 40% !important;
+      width: 50% !important;
     }
   }
   .man-on-padlock {
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
   .lense-flare {
     bottom: 0 !important;

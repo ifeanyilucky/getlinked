@@ -1,7 +1,7 @@
 {
   "name": "GetLinked.ai",
   "version": "1.0.0",
-  "description": "GetLinked.Ai Hackathon Web Applications using React, Webpack",
+  "description": "GetLinked.Ai Hackathon Web Applications using React, Webpack and Typescript",
   "license": "MIT",
   "author": {
     "name": "Ifeanyi Lucky",
