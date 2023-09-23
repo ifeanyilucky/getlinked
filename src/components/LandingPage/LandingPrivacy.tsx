@@ -1,10 +1,15 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import ManStandOnPadlock from '@assets/images/stand-on-padlock.png';
-import Guard from '@assets/images/guard.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
 import { Bullet } from '../svgs';
+// images
+import Guard from '@assets/images/guard.png';
+import ManStandOnPadlock from '@assets/images/stand-on-padlock.png';
+import LightStar from '@assets/images/start-light.png';
+import WhiteStar from '@assets/images/start-white.png';
+import PurpleStar from '@assets/images/start-purple.png';
+import GrayStar from '@assets/images/star-grey.png';
 
 const licenses = [
   `You are licensed to use the item available at any free source
@@ -15,6 +20,12 @@ const licenses = [
 const LandingPrivacy: React.FC = () => {
   return (
     <Wrapper>
+      <img src={GrayStar} alt='star' className='star star-1' />
+      <img src={PurpleStar} alt='star' className='star star-2' />
+      <img src={PurpleStar} alt='star' className='star star-3' />
+      <img src={GrayStar} alt='star' className='star star-4' />
+      <img src={WhiteStar} alt='star' className='star star-5' />
+      <img src={LightStar} alt='star' className='star star-6' />
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-6'>
@@ -147,6 +158,31 @@ const Wrapper = styled.div`
   .lense-flare {
     bottom: 0 !important;
     position: absolute;
+  }
+
+  .star-1 {
+    top: 20%;
+    left: 30%;
+  }
+  .star-2 {
+    top: 35%;
+    left: 45%;
+  }
+  .star-3 {
+    top: 30%;
+    right: 10%;
+  }
+  .star-4 {
+    bottom: 30%;
+    left: 10%;
+  }
+  .star-5 {
+    top: 60%;
+    right: 40%;
+  }
+  .star-6 {
+    bottom: 30%;
+    right: 10%;
   }
 `;
 

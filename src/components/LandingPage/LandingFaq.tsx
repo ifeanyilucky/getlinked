@@ -6,6 +6,10 @@ import QuestionMarks from '@assets/images/question-marks.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
 import { AnimatePresence, motion } from 'framer-motion';
+import LightStar from '@assets/images/start-light.png';
+import WhiteStar from '@assets/images/start-white.png';
+import PurpleStar from '@assets/images/start-purple.png';
+import GrayStar from '@assets/images/star-grey.png';
 
 interface IFaq {
   question: string;
@@ -49,6 +53,12 @@ const LandingFaq: React.FC = () => {
   const [currentFaq, setCurrentFaq] = useState<number>(1);
   return (
     <Wrapper id='faqs'>
+      <img src={PurpleStar} alt='star' className='star star-1' />
+      <img src={LightStar} alt='star' className='star star-2' />
+      <img src={LightStar} alt='star' className='star star-3' />
+      <img src={LightStar} alt='star' className='star star-4' />
+      <img src={GrayStar} alt='star' className='star star-5' />
+      <img src={WhiteStar} alt='star' className='star star-6' />
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-5'>
@@ -125,6 +135,7 @@ const LandingFaq: React.FC = () => {
 
 const Wrapper = styled.div`
   padding: 6rem 0;
+  position: relative;
   .question-marks {
     margin-bottom: -1.5rem;
     @media (max-width: 768px) {
@@ -146,6 +157,27 @@ const Wrapper = styled.div`
         display: block;
       }
     }
+  }
+
+  .star-1 {
+    left: 10%;
+    top: 10%;
+  }
+  .star-2 {
+    right: 30%;
+    top: 10%;
+  }
+  .star-3 {
+    left: 50%;
+    top: 30%;
+  }
+  .star-4 {
+    left: 50%;
+    top: 50%;
+  }
+  .star-5 {
+    right: 15%;
+    bottom: 10%;
   }
 `;
 

@@ -55,15 +55,15 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
     e.preventDefault();
     console.log(form);
     setLoading(true);
-    // await Api.post('hackathon/registration', form)
-    //   .then((res) => {
-    //     setLoading(false);
-    //     console.log(res);
-    //     setShowModal(true);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    await Api.post('hackathon/registration', form)
+      .then((res) => {
+        setLoading(false);
+        console.log(res);
+        setShowModal(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -147,13 +147,25 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
         <div className='col-md-6'>
           <div className='input-wrapper'>
             <label>Group Size</label>
-            <input
+            <select
               className='gl-input'
-              type='text'
               required
-              placeholder='Select'
               onChange={(e) => setForm({ ...form, group_size: e.target.value })}
-            />
+            >
+              <option value='disabled' selected disabled>
+                Select
+              </option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+              <option value='8'>8</option>
+              <option value='9'>9</option>
+              <option value='10'>10</option>
+            </select>
           </div>
         </div>
       </div>

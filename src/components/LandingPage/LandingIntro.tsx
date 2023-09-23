@@ -4,15 +4,17 @@ import MotionInView from '../animate/MotionInView';
 import { varFadeIn, varFadeInUp } from '../animate/variants';
 import TheBigIdea from '@assets/images/The-big-idea.png';
 import Arrow from '@assets/images/arrow.png';
-import StarWhite from '@assets/images/start-white.png';
+import StarLightPurple from '@assets/images/start-light.png';
+import StarPurple from '@assets/images/start-purple.png';
 
 const LandingIntro: React.FC = () => {
   return (
     <Wrapper>
+      <img src={StarLightPurple} className='star left' />
+      <img src={StarPurple} className='star right' />
       <div className='container'>
         <div className='row py-5 my-5 align-items-center'>
           <div className='col-md-6 intro-png position-relative'>
-            <img src={StarWhite} className='position' />
             <MotionInView variants={varFadeInUp}>
               <img
                 src={TheBigIdea}
@@ -71,6 +73,20 @@ const Wrapper = styled.div`
     position: absolute;
     bottom: 0;
     right: 3em;
+  }
+
+  .star {
+    width: 13px;
+    position: absolute;
+  }
+  .star.left {
+    left: 10%;
+    top: 5%;
+  }
+  .star.right {
+    width: 18px;
+    right: 10%;
+    top: 15%;
   }
 `;
 export default LandingIntro;

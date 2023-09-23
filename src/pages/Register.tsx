@@ -26,6 +26,7 @@ const Register = () => {
 
       <div className='container'>
         <div className='row align-items-center'>
+          <h4 className='highlight header mobile'>Register</h4>
           <div className='col-md-5 d-flex justify-content-center'>
             <div className='lense-flare lense-1' />
             <img
@@ -38,7 +39,7 @@ const Register = () => {
             <div className='lense-flare lense-2' />
             <div className='register-box'>
               <MotionInView variants={varFadeInUp}>
-                <h4 className='highlight header'>Register</h4>
+                <h4 className='highlight header desktop'>Register</h4>
                 <div className='be-part'>
                   <p className='pt-4 d-flex align-items-center'>
                     <span>Be part of this movement!</span>

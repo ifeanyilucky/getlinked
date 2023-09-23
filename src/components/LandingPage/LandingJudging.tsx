@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import JudgeImage from '@assets/images/judges.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
+import LightStar from '@assets/images/start-light.png';
+import WhiteStar from '@assets/images/start-white.png';
+import PurpleStar from '@assets/images/start-purple.png';
+import GrayStar from '@assets/images/star-grey.png';
 
 const attributes = [
   {
@@ -41,6 +45,9 @@ const attributes = [
 const LandingJudging: React.FC = () => {
   return (
     <Wrapper>
+      <img src={PurpleStar} className='star star-1' />
+      <img src={GrayStar} className='star star-2' />
+      <img src={WhiteStar} className='star star-3' />
       <div className='container'>
         <div className='row py-5 align-items-center'>
           <div className='col-md-7 d-flex justify-content-center'>
@@ -80,6 +87,7 @@ const LandingJudging: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   @media (max-width: 768px) {
     .display-6 {
       text-align: center;
@@ -100,6 +108,23 @@ const Wrapper = styled.div`
     @media (max-width: 768px) {
       display: none;
     }
+  }
+
+  .star {
+    width: 13px;
+    position: absolute;
+  }
+  .star-1 {
+    top: 10%;
+    left: 12%;
+  }
+  .star-2 {
+    top: 50%;
+    left: 30%;
+  }
+  .star-3 {
+    left: 50%;
+    bottom: 10%;
   }
 `;
 

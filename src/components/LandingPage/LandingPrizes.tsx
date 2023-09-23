@@ -6,6 +6,10 @@ import TargetCup from '@assets/images/target-cup.png';
 import BronzeMedal from '@assets/images/bronze_medal.png';
 import GoldMedal from '@assets/images/gold_medal.png';
 import SilverMedal from '@assets/images/silver_medal.png';
+import LightStar from '@assets/images/start-light.png';
+import WhiteStar from '@assets/images/start-white.png';
+import PurpleStar from '@assets/images/start-purple.png';
+import GrayStar from '@assets/images/star-grey.png';
 
 const prizes = [
   {
@@ -27,6 +31,10 @@ const prizes = [
 const LandingPrizes: React.FC = () => {
   return (
     <Wrapper>
+      <img src={LightStar} className='star star-1' />
+      <img src={WhiteStar} className='star star-2' />
+      <img src={WhiteStar} className='star star-3' />
+      <img src={GrayStar} className='star star-4' />
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-5'>
@@ -80,6 +88,7 @@ const LandingPrizes: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   padding: 4rem 0;
   .prize-header {
     margin-bottom: 10rem;
@@ -162,6 +171,24 @@ const Wrapper = styled.div`
         }
       }
     }
+  }
+
+  .star-1 {
+    top: 9%;
+    left: 25%;
+  }
+  .star-2 {
+    top: 45%;
+    left: 50%;
+  }
+  .star-3 {
+    right: 0;
+    top: 50%;
+  }
+  .star-4 {
+    left: 16%;
+    bottom: 10%;
+    width: 10px;
   }
 `;
 

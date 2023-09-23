@@ -86,7 +86,12 @@ a {
   border-style: solid;
   border-radius: 6px;
   background: transparent !important;
-  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  border-image: linear-gradient(
+      to right,
+      var(--app-accent-color),
+      var(--app-secondary-color)
+    )
+    1;
 }
 .divider {
   width: 100%;
@@ -214,7 +219,7 @@ $base-font-color: #726f77;
 }
 
 @media screen and (max-width: 768px) {
-  #timeline {
+  #timeline-container {
     margin: 30px;
     padding: 0px;
     width: 90%;
@@ -248,4 +253,18 @@ $base-font-color: #726f77;
   height: 134px;
   border-radius: 50%;
   background: linear-gradient(270deg, #8f01fe 0%, #ff2674 97.24%);
+}
+.star {
+  position: absolute;
+  width: 13px;
+}
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
 }

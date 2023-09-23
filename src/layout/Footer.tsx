@@ -1,3 +1,5 @@
+import React from 'react';
+import styled from 'styled-components';
 import { Logo } from '@src/components/Logo';
 import {
   FacebookIcon,
@@ -5,12 +7,18 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@src/components/svgs';
-import React from 'react';
-import styled from 'styled-components';
+import LightStar from '@assets/images/start-light.png';
+import WhiteStar from '@assets/images/start-white.png';
+import PurpleStar from '@assets/images/start-purple.png';
+import GrayStar from '@assets/images/star-grey.png';
 
 const Footer: React.FC = () => {
   return (
     <Wrapper>
+      <img src={WhiteStar} alt='star' className='star star-1' />
+      <img src={LightStar} alt='star' className='star star-2' />
+      <img src={GrayStar} alt='star' className='star star-3' />
+      <img src={WhiteStar} alt='star' className='star star-4' />
       <div className='container'>
         <div className='row'>
           <div className='col-md-4 mx-auto'>
@@ -111,6 +119,7 @@ const Footer: React.FC = () => {
 const Wrapper = styled.div`
   padding-top: 4rem;
   padding-bottom: 1rem;
+  position: relative;
   background-color: #100b20;
   .socials {
     display: flex;
@@ -132,6 +141,25 @@ const Wrapper = styled.div`
   .copyright {
     text-align: center;
     margin-top: 3rem;
+  }
+
+  .star-1 {
+    top: 20%;
+    left: 20%;
+  }
+
+  .star-2 {
+    bottom: 10%;
+    left: 50%;
+  }
+  .star-3 {
+    right: 40%;
+    top: 10%;
+    width: 10px;
+  }
+  .star-4 {
+    bottom: 10%;
+    left: 10%;
   }
 `;
 

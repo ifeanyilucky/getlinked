@@ -210,16 +210,6 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
-    .desktop {
-      display: none;
-    }
-  }
-  @media (min-width: 768px) {
-    .mobile {
-      display: none;
-    }
-  }
   .star {
     position: absolute;
     width: 17px;

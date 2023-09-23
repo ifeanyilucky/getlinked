@@ -4,12 +4,16 @@ import styled from 'styled-components';
 import LadySitting from '@assets/images/lady-sitting.png';
 import MotionInView from '../animate/MotionInView';
 import { varFadeInUp } from '../animate/variants';
+import StarGray from '@assets/images/star-grey.png';
+import StarWhite from '@assets/images/start-white.png';
 
 const LandingRulesAndGuidelines: React.FC = () => {
   return (
     <Wrapper>
       <div className='lense-flare lense-3' />
       <div className='lense-flare lense-4' />
+      <img className='star first' src={StarGray} alt='star' />
+      <img className='star second' src={StarWhite} alt='star' />
       <div className='container'>
         <div className='row py-5 align-items-center'>
           <div className='col-md-5'>
@@ -71,6 +75,19 @@ const Wrapper = styled.div`
     position: absolute;
     right: -18rem;
     top: 55%;
+  }
+
+  .star {
+    position: absolute;
+    width: 13px;
+  }
+  .star.first {
+    top: 20%;
+    left: 30%;
+  }
+  .star.second {
+    bottom: 20%;
+    left: 50%;
   }
 `;
 
