@@ -1,31 +1,56 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Api } from '@src/utils/api';
 import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
   XIcon,
 } from '@src/components/svgs';
-// import { Api } from '@src/utils/api';
+// images
+import PurpleStar from '@assets/images/start-purple.png';
+import LightPurpleStar from '@assets/images/start-light.png';
+import GrayStar from '@assets/images/star-grey.png';
+import WhiteStar from '@assets/images/start-white.png';
 
+interface IContactBody {
+  email: string;
+  phone_number: string;
+  first_name: string;
+  message: string;
+}
 const Contact: React.FC = () => {
-  // const [values, setValues] = React.useState({
-  //   email: '',
-  //   phone_number: '',
-  //   first_name: '',
-  //   message: '',
-  // });
+  const initialValues = {
+    email: '',
+    phone_number: '',
+    first_name: '',
+    message: '',
+  };
+  const [values, setValues] = React.useState<IContactBody>(initialValues);
+  const [isLoading, setIsLoading] = React.useState(false);
 
-  // async function handleSubmit() {
-  //   console.log(values);
-  //   // try {
-  //   //   const { data } = await Api.get('/hackathon/contact-form');
-  //   // } catch (error) {
-  //   //   console.log(error);
-  //   // }
-  // }
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    console.log(values);
+    try {
+      setIsLoading(true);
+      const { data } = await Api.post('/hackathon/contact-form', values);
+
+      setIsLoading(false);
+
+      window.alert('Thank you! Your submission has been sent');
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+  }
   return (
     <Wrapper>
+      {/* stars */}
+      <img src={LightPurpleStar} className='star star-1' alt='star' />
+      <img src={GrayStar} className='star star-2' alt='star' />
+      <img src={PurpleStar} className='star star-3' alt='star' />
+      <img src={WhiteStar} className='star star-4' alt='star' />
       <div className='lense-flare lense' />
       <div className='container'>
         <div className='row align-items-center'>
@@ -73,24 +98,58 @@ const Contact: React.FC = () => {
               <p className='mobile'>
                 Email us below to any question related to our event
               </p>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div>
                   <input
                     className='gl-input'
                     type='text'
                     placeholder='First Name'
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, first_name: e.target.value })
+                    }
                   />
                 </div>
                 <div>
-                  <input className='gl-input' type='email' placeholder='Mail' />
+                  <input
+                    className='gl-input'
+                    type='tel'
+                    placeholder='Phone number'
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, phone_number: e.target.value })
+                    }
+                  />
                 </div>
                 <div>
-                  <textarea className='gl-input' placeholder='Message' />
+                  <input
+                    className='gl-input'
+                    type='email'
+                    placeholder='Email'
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, email: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <textarea
+                    className='gl-input'
+                    placeholder='Message'
+                    required
+                    onChange={(e) =>
+                      setValues({ ...values, message: e.target.value })
+                    }
+                  />
                 </div>
 
                 <div className='text-center'>
-                  <button className='gl-button' type='submit'>
-                    Submit
+                  <button
+                    className='gl-button'
+                    type='submit'
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Please wait...' : 'Submit'}
                   </button>
                 </div>
               </form>
@@ -142,7 +201,7 @@ const Wrapper = styled.div`
     border: 1px solid #fff;
     padding: 10px 16px;
     width: 100%;
-    margin: 20px 0;
+    margin: 13px 0;
     color: #fff;
     background-color: transparent;
     ::placeholder {
@@ -160,6 +219,25 @@ const Wrapper = styled.div`
     .mobile {
       display: none;
     }
+  }
+  .star {
+    position: absolute;
+    width: 17px;
+  }
+  .star-1 {
+    left: 10%;
+  }
+  .star-2 {
+    right: 20%;
+  }
+  .star-3 {
+    bottom: 20%;
+    left: 10%;
+  }
+  .star-4 {
+    right: 20%;
+    bottom: 10%;
+    width: 10px;
   }
 `;
 

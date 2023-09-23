@@ -3,37 +3,10 @@ import styled from 'styled-components';
 import MotionInView from './animate/MotionInView';
 import { varFadeInUp } from './animate/variants';
 
-// const timeline = [
-//   {
-//     title: ``,
-//     description: '',
-//     id: 1
-//   },
-//   {
-//     title: ``,
-//     description: '',
-//     id: 1
-//   },
-//   {
-//     title: ``,
-//     description: '',
-//     id: 1
-//   },
-//   {
-//     title: ``,
-//     description: '',
-//     id: 1
-//   },
-//   {
-//     title: ``,
-//     description: '',
-//     id: 1
-//   },
-// ]
 export const Timeline: React.FC = () => {
   return (
     <TimelineWrapper>
-      <div id='timeline'>
+      <div id='timeline-container'>
         <div className='timeline-item'>
           <div className='timeline-icon d-flex align-items-center justify-content-center'>
             <div>

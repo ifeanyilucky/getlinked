@@ -139,7 +139,7 @@ $base-font-color: #726f77;
 }
 
 // Timeline
-#timeline {
+#timeline-container {
   width: 100%;
   margin: 30px auto;
   position: relative;
@@ -149,14 +149,14 @@ $base-font-color: #726f77;
   &:before {
     content: '';
     width: 3px;
-    height: 110%;
+    height: 100%;
     background: linear-gradient(
       to left,
       rgba(144, 58, 255, 100%),
       rgba(212, 52, 254, 100%)
     );
     left: 50%;
-    top: -10%;
+
     position: absolute;
   }
 

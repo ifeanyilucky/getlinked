@@ -8,6 +8,8 @@ import { varFadeInUp } from '../animate/variants';
 const LandingRulesAndGuidelines: React.FC = () => {
   return (
     <Wrapper>
+      <div className='lense-flare lense-3' />
+      <div className='lense-flare lense-4' />
       <div className='container'>
         <div className='row py-5 align-items-center'>
           <div className='col-md-5'>
@@ -59,6 +61,16 @@ const Wrapper = styled.div`
     @media (max-width: 768px) {
       display: none;
     }
+  }
+  .lense-3 {
+    position: absolute;
+    left: 0;
+    top: 45%;
+  }
+  .lense-4 {
+    position: absolute;
+    right: -18rem;
+    top: 55%;
   }
 `;
 

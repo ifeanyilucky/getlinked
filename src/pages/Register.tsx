@@ -1,33 +1,29 @@
 import styled from 'styled-components';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MotionInView from '@src/components/animate/MotionInView';
 import { varFadeInUp } from '@src/components/animate/variants';
+import { CongratModal, RegisterForm } from '@src/components/RegisterPage';
 // images
 import FemaleWalking from '@assets/images/female-walking-emoji.png';
 import MaleWalking from '@assets/images/male-walking-emoji.png';
 import DesignerShowingThumbs from '@assets/images/3d-graphic-designer-showing-thumbs-up.png';
-import { CongratModal, RegisterForm } from '@src/components/RegisterPage';
-import { Api } from '@src/utils/api';
+import PurpleStar from '@assets/images/start-purple.png';
+import LightPurpleStar from '@assets/images/start-light.png';
+import GrayStar from '@assets/images/star-grey.png';
+import WhiteStar from '@assets/images/start-white.png';
 
 const Register = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    const getCategories = async () => {
-      await Api.get('/hackathon/categories-list')
-        .then(({ data }) => {
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-    getCategories();
-  }, []);
   return (
     <Wrapper>
       <CongratModal showModal={showModal} setShowModal={setShowModal} />
+      {/* stars */}
+      <img src={LightPurpleStar} className='star star-1' alt='star' />
+      <img src={GrayStar} className='star star-2' alt='star' />
+      <img src={PurpleStar} className='star star-3' alt='star' />
+      <img src={WhiteStar} className='star star-4' alt='star' />
+
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-md-5 d-flex justify-content-center'>
@@ -44,8 +40,8 @@ const Register = () => {
               <MotionInView variants={varFadeInUp}>
                 <h4 className='highlight header'>Register</h4>
                 <div className='be-part'>
-                  <p className='pt-4'>
-                    Be part of this movement!
+                  <p className='pt-4 d-flex align-items-center'>
+                    <span>Be part of this movement!</span>
                     <span className='highlight movement-img'>
                       {' '}
                       <img
@@ -72,6 +68,7 @@ const Register = () => {
 
 const Wrapper = styled.div`
   padding: 5rem 0;
+  position: relative;
   button {
     width: 100%;
     @media (max-width: 768px) {
@@ -107,7 +104,6 @@ const Wrapper = styled.div`
     padding: 2.5rem;
     .movement-img {
       border-bottom: 1px dashed var(--app-accent-color);
-      padding-bottom: 6px;
       margin-top: -20px !important;
     }
     @media (max-width: 768px) {
@@ -118,7 +114,24 @@ const Wrapper = styled.div`
     }
   }
 
-  .be-part {
+  .star {
+    position: absolute;
+    width: 17px;
+  }
+  .star-1 {
+    left: 10%;
+  }
+  .star-2 {
+    right: 20%;
+  }
+  .star-3 {
+    bottom: 20%;
+    left: 10%;
+  }
+  .star-4 {
+    right: 20%;
+    bottom: 10%;
+    width: 10px;
   }
 `;
 export default Register;

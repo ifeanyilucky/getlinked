@@ -17,8 +17,10 @@ import StarWhite from '@assets/images/start-white.png';
 const LandingHero: React.FC = () => {
   return (
     <Wrapper>
+      <div className='lense-flare lense-1' />
+      <div className='lense-flare lense-2' />
       <div className='container'>
-        <div className='top-text'>
+        <div className='top-text mb-5'>
           <h3>
             <i>Igniting a Revolution in HR Innovation</i>
           </h3>
@@ -28,7 +30,7 @@ const LandingHero: React.FC = () => {
             className='top-text-underline'
           />
         </div>
-        <div className='row mt-5'>
+        <div className='row' style={{ marginTop: '7rem' }}>
           <div className='col-md-6'>
             {/* start images */}
 
@@ -61,7 +63,7 @@ const LandingHero: React.FC = () => {
               </div>
             </div>
             <MotionInView variants={varFadeInUp}>
-              <div className='timer-wrapper mt-5'>
+              <div className='timer-wrapper pt-4 mb-5'>
                 <div className='timer'>
                   <p className='display-5'>00</p> <span>H</span>
                 </div>
@@ -76,19 +78,20 @@ const LandingHero: React.FC = () => {
           </div>
 
           <div className='col-md-6'>
-            <div className='position-relative'>
+            <div className='position-relative h-100'>
               <MotionInView variants={varFadeIn}>
-                <img
-                  src={HeroImg}
-                  alt='man-wearing-smart-glasses'
-                  className='w-100'
-                />
-
-                <img
-                  src={HeroImg2}
-                  alt='overlay-image'
-                  className='overlay-img'
-                />
+                <div className='hero-img-wrapper'>
+                  <img
+                    src={HeroImg}
+                    alt='man-wearing-smart-glasses'
+                    className='w-100 man-with-glasses'
+                  />
+                  <img
+                    src={HeroImg2}
+                    alt='overlay-image'
+                    className='overlay-img'
+                  />{' '}
+                </div>
               </MotionInView>
             </div>
           </div>
@@ -136,6 +139,16 @@ const Wrapper = styled.div`
     margin-top: -1.8rem;
   }
 
+  @media (min-width: 768px) {
+    .hero-img-wrapper {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      .man-with-glasses {
+        width: 100% !important;
+      }
+    }
+  }
   /* screen size of 762px */
   @media (max-width: 768px) {
     .display-4 {
@@ -176,6 +189,17 @@ const Wrapper = styled.div`
     right: 0;
     width: 780px;
     z-index: -999;
+  }
+
+  .lense-1 {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .lense-2 {
+    position: absolute;
+    right: 0;
+    top: 30px;
   }
 `;
 export default LandingHero;

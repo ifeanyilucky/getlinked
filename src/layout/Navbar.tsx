@@ -87,13 +87,14 @@ const Wrapper = styled.div<StyleProps>`
     align-items: baseline;
     justify-content: space-between;
     .nav-logo {
-      flex: 50%;
+      flex: 30%;
     }
     .nav-content {
       display: flex;
       align-items: baseline;
-      justify-content: space-between;
-      flex: 50%;
+      justify-content: flex-end;
+      gap: 6rem;
+      flex: 70%;
       .nav-items {
         display: flex;
         list-style-type: none;

@@ -37,7 +37,7 @@ const LandingPrizes: React.FC = () => {
             />
           </div>
 
-          <div className='col-md-7'>
+          <div className='col-md-7 d-flex flex-column align-items-center'>
             <div className='prize-header'>
               <h5 className='display-6 header'>
                 Prizes and <br />
@@ -138,6 +138,7 @@ const Wrapper = styled.div`
             border: 1px solid var(--app-secondary-color) !important;
             /* height: 270px; */
             padding-bottom: 1.5rem;
+            padding-top: 2rem;
             .prize-text {
               .amount {
                 color: var(--app-secondary-color);
@@ -148,7 +149,7 @@ const Wrapper = styled.div`
               align-items: center;
               text-align: center;
               margin-left: -32px;
-              margin-top: -8rem;
+              margin-top: -10rem;
               @media (max-width: 769px) {
                 /* margin-left: -29px !important; */
               }

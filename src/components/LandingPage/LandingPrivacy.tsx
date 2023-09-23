@@ -16,8 +16,9 @@ const LandingPrivacy: React.FC = () => {
   return (
     <Wrapper>
       <div className='container'>
-        <div className='row'>
+        <div className='row align-items-center'>
           <div className='col-md-6'>
+            <div className='lense-flare' />
             <MotionInView variants={varFadeInUp}>
               <h5 className='display-6 header'>
                 Privacy Policy and <br />{' '}
@@ -92,6 +93,7 @@ const LandingPrivacy: React.FC = () => {
 
 const Wrapper = styled.div`
   padding: 4rem 0;
+  position: relative;
   .privacy-box {
     border: 1px solid var(--app-accent-color);
     border-radius: 5px;
@@ -136,6 +138,15 @@ const Wrapper = styled.div`
     .man-on-padlock {
       width: 40% !important;
     }
+  }
+  .man-on-padlock {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .lense-flare {
+    bottom: 0 !important;
+    position: absolute;
   }
 `;
 

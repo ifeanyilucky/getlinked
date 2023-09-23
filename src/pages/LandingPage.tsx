@@ -21,8 +21,6 @@ const LandingPage: React.FC = () => {
   return (
     <Wrapper>
       <div className='position-relative'>
-        <div className='lense-flare lense-1' />
-        <div className='lense-flare lense-2' />
         <img src={StarWhite} className='star star-1' />
         <img src={StarGrey} className='star star-2' />
         <img src={StarGrey} className='star star-3' />
@@ -37,8 +35,6 @@ const LandingPage: React.FC = () => {
         <LandingIntro />
         <div className='divider' />
 
-        <div className='lense-flare lense-3' />
-        <div className='lense-flare lense-4' />
         <LandingRulesAndGuidelines />
         <div className='divider' />
       </div>
@@ -89,26 +85,7 @@ const Wrapper = styled.div`
     bottom: 40%;
     right: 20%;
   }
-  .lense-1 {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  .lense-2 {
-    position: absolute;
-    right: 0;
-    top: 30px;
-  }
-  .lense-3 {
-    position: absolute;
-    left: 0;
-    top: 45%;
-  }
-  .lense-4 {
-    position: absolute;
-    right: -18rem;
-    top: 55%;
-  }
+
   .lense-5 {
     position: absolute;
     left: 0;

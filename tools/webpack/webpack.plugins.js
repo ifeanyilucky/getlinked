@@ -4,7 +4,9 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const dotenv = require('dotenv');
 
+dotenv.config();
 module.exports = [
   new ForkTsCheckerWebpackPlugin(),
   inDev() && new webpack.HotModuleReplacementPlugin(),
@@ -12,6 +14,9 @@ module.exports = [
   new HtmlWebpackPlugin({
     template: 'src/index.html',
     inject: true,
+  }),
+  new webpack.DefinePlugin({
+    'process.env': JSON.stringify(process.env),
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[chunkhash].css',

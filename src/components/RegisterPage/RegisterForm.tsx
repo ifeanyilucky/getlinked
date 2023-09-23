@@ -1,5 +1,5 @@
 import { Api } from '@src/utils/api';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 interface IFormProps {
@@ -14,6 +14,12 @@ interface IForm<T> {
   category: T;
   privacy_poclicy_accepted: boolean;
 }
+interface ICategory {
+  id: number;
+  name: string;
+  disabled: boolean;
+}
+
 const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
   const [form, setForm] = React.useState<IForm<string>>({
     email: '',
@@ -22,25 +28,42 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
     group_size: '',
     project_topic: '',
     category: '',
-    privacy_poclicy_accepted: true,
+    privacy_poclicy_accepted: false,
   });
-  const [acceptTerms, setAcceptTerms] = React.useState<boolean>(false);
 
   const [isLoading, setLoading] = React.useState<boolean>(false);
+  const [categories, setCategories] = useState<ICategory[]>([
+    { id: 0, name: 'Select your category', disabled: true },
+  ]);
+
+  // initialize categories to populate category selection option
+  useEffect(() => {
+    const getCategories = async () => {
+      await Api.get('/hackathon/categories-list')
+        .then(({ data }) => {
+          console.log(data);
+          setCategories([...categories, ...data]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    getCategories();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<any>): Promise<void> => {
     e.preventDefault();
     console.log(form);
     setLoading(true);
-    await Api.post('hackathon/registration', form)
-      .then((res) => {
-        setLoading(false);
-        console.log(res);
-        setShowModal(true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // await Api.post('hackathon/registration', form)
+    //   .then((res) => {
+    //     setLoading(false);
+    //     console.log(res);
+    //     setShowModal(true);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
@@ -52,6 +75,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             <input
               className='gl-input'
               type='text'
+              required
               placeholder='Enter the name of your group'
               onChange={(e) => setForm({ ...form, team_name: e.target.value })}
             />
@@ -63,6 +87,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             <input
               className='gl-input'
               type='text'
+              required
               placeholder='Enter your phone number'
               onChange={(e) =>
                 setForm({ ...form, phone_number: e.target.value })
@@ -77,6 +102,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             <input
               className='gl-input'
               type='email'
+              required
               placeholder='Enter your email address'
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
@@ -88,6 +114,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             <input
               className='gl-input'
               type='text'
+              required
               placeholder='What is your group project topic'
               onChange={(e) =>
                 setForm({ ...form, project_topic: e.target.value })
@@ -98,12 +125,23 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
         <div className='col-md-6'>
           <div className='input-wrapper'>
             <label>Category</label>
-            <input
+            <select
               className='gl-input'
-              type='text'
+              required
               placeholder='Select your category'
               onChange={(e) => setForm({ ...form, category: e.target.value })}
-            />
+            >
+              {categories.length &&
+                categories.map((category: ICategory) => (
+                  <option
+                    key={category.id}
+                    // disabled={category.id === 0 ? true : false}
+                    // value={category.id === 0 ? '' : category.name}
+                  >
+                    {category.name}
+                  </option>
+                ))}
+            </select>
           </div>
         </div>
         <div className='col-md-6'>
@@ -112,6 +150,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             <input
               className='gl-input'
               type='text'
+              required
               placeholder='Select'
               onChange={(e) => setForm({ ...form, group_size: e.target.value })}
             />
@@ -126,9 +165,15 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       <div className='d-flex align-items-baseline pb-3'>
         <input
           type='checkbox'
-          checked={acceptTerms}
+          checked={form.privacy_poclicy_accepted}
           className='checkbox'
-          onChange={() => setAcceptTerms(!acceptTerms)}
+          required
+          onChange={() => {
+            setForm({
+              ...form,
+              privacy_poclicy_accepted: !form.privacy_poclicy_accepted,
+            });
+          }}
         />
         <small>
           I agreed with the event terms and conditions and privacy policy.
@@ -136,13 +181,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       </div>
 
       <div className='text-center'>
-        <button
-          type='submit'
-          disabled={isLoading}
-          className='gl-button'
-
-          // disabled={isLoading === true && acceptTerms === true ? true : false}
-        >
+        <button type='submit' className='gl-button' disabled={isLoading}>
           {isLoading ? 'Please wait...' : '  Register Now'}
         </button>
       </div>
@@ -160,9 +199,9 @@ const FormWrapper = styled.form`
       width: 100%;
       background-color: rgba(255, 255, 255, 0.03);
       border: 1px solid #fff;
-      padding: 10px 12px;
-      padding-left: 20px;
+      padding: 10px 15px;
       border-radius: 4px;
+      color: #fff;
       ::placeholder {
         color: rgba(255, 255, 255, 25%);
       }

@@ -79,7 +79,7 @@ const Wrapper = styled.div`
     padding: 5rem 4rem;
     .sponsors {
       display: grid;
-      grid-template-columns: 33% 33% 33%;
+      grid-template-columns: repeat(3, minmax(0px, 1fr));
       gap: 10px;
       flex-wrap: wrap;
     }
