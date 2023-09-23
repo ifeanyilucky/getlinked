@@ -159,7 +159,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
                   >
                     {category.name}
                   </option>
-                )) : defaultCategories.map((categories)=>(
+                )) : defaultCategories.map((category)=>(
                   <option
                     key={category.id}
                     disabled={category.id === 0 ? true : false}
