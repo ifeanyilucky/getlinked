@@ -61,6 +61,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
         })
         .catch((error) => {
           console.log(error);
+          
         });
     };
     getCategories();
@@ -79,6 +80,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       .catch((error) => {
         console.log(error);
         setLoading(false);
+        setShowModal(true)
       });
   };
 
