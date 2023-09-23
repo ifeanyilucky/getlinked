@@ -257,6 +257,7 @@ $base-font-color: #726f77;
 .star {
   position: absolute;
   width: 13px;
+  z-index: -999 !important;
 }
 @media (max-width: 768px) {
   .desktop {

@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className='col-md-8 d-flex justify-content-center'>
+          <div className='col-md-8 col-sm-12 col-xs-12 d-flex justify-content-center'>
             <MotionInView variants={varFadeInUp}>
               <div className='contact-box'>
                 <h4 className='header mb-3 highlight'>
@@ -202,6 +202,9 @@ const Wrapper = styled.div`
     @media (max-width: 768px) {
       background: transparent;
       box-shadow: none;
+      max-width: 100%;
+      width: 100%;
+      padding: 0;
     }
     background: rgba(255, 255, 255, 0.03);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
