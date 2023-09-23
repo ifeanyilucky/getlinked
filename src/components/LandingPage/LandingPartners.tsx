@@ -102,48 +102,79 @@ const Wrapper = styled.div`
       place-items: center;
 
       &:nth-child(1) {
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-        border-color: var(--app-accent-color) !important;
         &::before {
           content: '';
           position: absolute;
-          right: -25px;
-          bottom: -25px;
-          height: 50px;
-          width: 50px;
+          left: 10%;
+          height: 2px;
+          bottom: 0;
+          width: 80%;
+          background-color: var(--app-accent-color);
+        }
+        &::after {
+          height: 80%;
+          top: 0;
+          position: absolute;
+          right: 0;
+          width: 2px;
+          content: '';
+          background-color: var(--app-accent-color);
         }
       }
       &:nth-child(2) {
-        border-right-width: 2px;
-        border-left-width: 2px;
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-        border-right-style: solid;
-        border-left-style: solid;
-        border-color: var(--app-accent-color);
+        &::before {
+          content: '';
+          position: absolute;
+          left: 10%;
+          height: 2px;
+          bottom: 0;
+          width: 80%;
+          background-color: var(--app-accent-color);
+        }
+        &::after {
+          height: 80%;
+          top: 0;
+          position: absolute;
+          right: 0;
+          width: 2px;
+          content: '';
+          background-color: var(--app-accent-color);
+        }
       }
       &:nth-child(3) {
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-        border-bottom-style: solid;
-        border-color: var(--app-accent-color);
+        &::before {
+          content: '';
+          position: absolute;
+          left: 10%;
+          height: 2px;
+          bottom: 0;
+          width: 80%;
+          background-color: var(--app-accent-color);
+        }
+      }
+      &:nth-child(4) {
+        &::after {
+          height: 80%;
+          top: 0;
+          position: absolute;
+          right: 0;
+          width: 2px;
+          content: '';
+          background-color: var(--app-accent-color);
+        }
       }
       &:nth-child(5) {
-        border-right-width: 2px;
-        border-left-width: 2px;
-        border-right-style: solid;
-        border-left-style: solid;
+        &::after {
+          height: 80%;
+          top: 0;
+          position: absolute;
+          right: 0;
+          width: 2px;
+          content: '';
+          background-color: var(--app-accent-color);
+        }
       }
 
-      /* ::before {
-        width: 25px;
-        height: 25px;
-        bottom: -12.25px;
-        right: -12.25px;
-        position: absolute;
-        content: '';
-      } */
       .logo {
         border-bottom: none;
         padding: 10px;

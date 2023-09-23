@@ -11,6 +11,8 @@ import LightStar from '@assets/images/start-light.png';
 import WhiteStar from '@assets/images/start-white.png';
 import PurpleStar from '@assets/images/start-purple.png';
 import GrayStar from '@assets/images/star-grey.png';
+import { Link } from 'react-router-dom';
+import { PATH } from '@src/routes/paths';
 
 const Footer: React.FC = () => {
   return (
@@ -41,10 +43,18 @@ const Footer: React.FC = () => {
               <strong className='highlight'>Useful Links</strong>
             </p>
             <ul className='link-list'>
-              <li>Overview</li>
-              <li>Timeline</li>
-              <li>FAQs</li>
-              <li>Register</li>
+              <li>
+                <Link to=''>Overview</Link>
+              </li>
+              <li>
+                <Link to=''>Timeline</Link>
+              </li>
+              <li>
+                <Link to=''>FAQs</Link>
+              </li>
+              <li>
+                <Link to={PATH.register}>Register</Link>
+              </li>
               <li className='socials'>
                 <div className='highlight'>Follow us</div>
                 <div>

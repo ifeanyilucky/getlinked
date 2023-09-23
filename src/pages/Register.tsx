@@ -29,11 +29,13 @@ const Register = () => {
           <h4 className='highlight header mobile'>Register</h4>
           <div className='col-md-5 d-flex justify-content-center'>
             <div className='lense-flare lense-1' />
-            <img
-              src={DesignerShowingThumbs}
-              className='register-img'
-              alt='DesignerShowingThumbs'
-            />
+            <MotionInView variants={varFadeInUp}>
+              <img
+                src={DesignerShowingThumbs}
+                className='register-img'
+                alt='DesignerShowingThumbs'
+              />
+            </MotionInView>
           </div>
           <div className='col-md-7'>
             <div className='lense-flare lense-2' />

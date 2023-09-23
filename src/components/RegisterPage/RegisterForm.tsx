@@ -9,9 +9,9 @@ interface IForm<T> {
   email: string;
   phone_number: string;
   team_name: string;
-  group_size: T;
+  group_size: number;
   project_topic: string;
-  category: T;
+  category: number;
   privacy_poclicy_accepted: boolean;
 }
 interface ICategory {
@@ -21,13 +21,13 @@ interface ICategory {
 }
 
 const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
-  const [form, setForm] = React.useState<IForm<string>>({
+  const [form, setForm] = React.useState<IForm<number>>({
     email: '',
     phone_number: '',
     team_name: '',
-    group_size: '',
+    group_size: 0,
     project_topic: '',
-    category: '',
+    category: 0,
     privacy_poclicy_accepted: false,
   });
 
@@ -63,6 +63,7 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
       })
       .catch((error) => {
         console.log(error);
+        setLoading(false);
       });
   };
 
@@ -122,21 +123,24 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             />
           </div>
         </div>
-        <div className='col-md-6'>
+        <div className='col-md-6 col-sm-8 col-xs-8'>
           <div className='input-wrapper'>
             <label>Category</label>
             <select
               className='gl-input'
               required
               placeholder='Select your category'
-              onChange={(e) => setForm({ ...form, category: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, category: Number(e.target.value) })
+              }
+              defaultValue={''}
             >
               {categories.length &&
                 categories.map((category: ICategory) => (
                   <option
                     key={category.id}
-                    // disabled={category.id === 0 ? true : false}
-                    // value={category.id === 0 ? '' : category.name}
+                    disabled={category.id === 0 ? true : false}
+                    value={category.id === 0 ? '' : category.id}
                   >
                     {category.name}
                   </option>
@@ -144,27 +148,29 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
             </select>
           </div>
         </div>
-        <div className='col-md-6'>
+        <div className='col-md-6 col-sm-4 col-xs-4'>
           <div className='input-wrapper'>
             <label>Group Size</label>
             <select
               className='gl-input'
               required
-              onChange={(e) => setForm({ ...form, group_size: e.target.value })}
+              onChange={(e) =>
+                setForm({ ...form, group_size: Number(e.target.value) })
+              }
             >
               <option value='disabled' selected disabled>
                 Select
               </option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>
-              <option value='6'>6</option>
-              <option value='7'>7</option>
-              <option value='8'>8</option>
-              <option value='9'>9</option>
-              <option value='10'>10</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
             </select>
           </div>
         </div>
@@ -221,6 +227,9 @@ const FormWrapper = styled.form`
   }
   .checkbox {
     margin-right: 10px;
+  }
+  option {
+    background-color: var(--app-accent-color);
   }
 `;
 
