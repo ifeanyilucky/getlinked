@@ -150,26 +150,16 @@ const RegisterForm: React.FC<IFormProps> = ({ setShowModal }) => {
               }
               defaultValue={''}
             >
-              {/* {categories.length > 1
-                ? categories.map((category: ICategory) => (
-                    <option
-                      key={category.id}
-                      disabled={category.disabled}
-                      value={category.id}
-                    >
-                      {category.name}
-                    </option>
-                  ))
-                :  */}
-              {defaultCategories.map((category) => (
-                <option
-                  key={category.id}
-                  disabled={category.disabled}
-                  value={category.id === 0 ? '' : category.id}
-                >
-                  {category.name}
-                </option>
-              ))}
+              {categories.length > 1 &&
+                categories.map((category: ICategory) => (
+                  <option
+                    key={category.id}
+                    disabled={category.disabled}
+                    value={category.id}
+                  >
+                    {category.name}
+                  </option>
+                ))}
             </select>
           </div>
         </div>
